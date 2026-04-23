@@ -7,13 +7,13 @@ import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
 
 export const metadata: Metadata = {
-  title: "ATS Resume Checker Guide | CBCBS — Improve Parseability & Keywords",
+  title: "ATS Resume Checker Guide for Job Applications | CV Builder",
   description:
-    "Learn how ATS resume checking works, what recruiters scan for, and how CBCBS helps you build cleaner, keyword-aligned resumes—then generate your draft with the AI resume builder.",
+    "Learn how an ATS resume checker works, improve resume parseability and keyword matching, and apply an AI resume builder workflow that converts better.",
   openGraph: {
-    title: "ATS Resume Checker Guide | CBCBS",
+    title: "ATS Resume Checker Guide for Job Applications | CV Builder",
     description:
-      "Improve ATS readability and keyword alignment with CBCBS: practical guidance plus AI drafting for resumes and cover letters.",
+      "Improve ATS readability and keyword alignment with practical guidance plus AI drafting for resumes and cover letters.",
   },
 };
 

@@ -5,9 +5,9 @@ import { SeoPageLayout } from "@/components/seo-page-layout";
 import { LONG_TAIL_PAGES, LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-data";
 
 export const metadata: Metadata = {
-  title: "Blog | CBCBS — Job Search Guides & AI Resume Tips",
+  title: "AI Resume Builder Blog | CV Builder Career Guides",
   description:
-    "Practical guides for job seekers using CBCBS: AI resume builder workflows, ATS tips, and cover letter strategies.",
+    "Read practical AI resume builder guides, ATS resume checker tips, and cover letter strategies built for modern job seekers.",
 };
 
 const posts = [

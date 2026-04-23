@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const data = getLongTailPage(slug);
   if (!data) {
-    return { title: "Not found | CBCBS" };
+    return { title: "Not found | CV Builder" };
   }
   return {
     title: data.metaTitle,

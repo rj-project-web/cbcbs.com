@@ -6,13 +6,13 @@ import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
 
 export const metadata: Metadata = {
-  title: "Free Resume Generator Online | CBCBS — AI-Powered Drafts",
+  title: "Free AI Resume Builder Online | CV Builder",
   description:
-    "Use CBCBS as a free resume generator online: enter your background, generate an ATS-oriented English resume draft, and iterate quickly—no heavy templates required.",
+    "Try a free AI resume builder online to generate ATS-oriented resume drafts fast, refine keyword alignment, and tailor applications role by role.",
   openGraph: {
-    title: "Free Resume Generator Online | CBCBS",
+    title: "Free AI Resume Builder Online | CV Builder",
     description:
-      "Create a strong resume draft fast with CBCBS: a streamlined free resume generator workflow built for clarity and ATS readability.",
+      "Create a strong resume draft quickly with a free AI resume builder workflow focused on clarity, ATS readability, and faster iteration.",
   },
 };
 

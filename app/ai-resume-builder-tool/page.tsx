@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { ResumeGenerator } from "@/components/resume-generator";
 
 export const metadata: Metadata = {
-  title: "AI Resume Builder | CV Builder",
+  title: "AI Resume Builder Tool (Free) | CV Builder",
   description:
-    "Use the AI Resume Builder to generate ATS-friendly resume drafts in seconds, then refine with role-specific keywords.",
+    "Generate ATS-friendly resume drafts with our free AI resume builder tool, then optimize wording and keywords for each job application.",
   alternates: {
     canonical: "/ai-resume-builder-tool",
   },

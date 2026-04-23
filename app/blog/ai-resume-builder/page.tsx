@@ -6,11 +6,11 @@ import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
 
 export const metadata: Metadata = {
-  title: "How to Use an AI Resume Builder Without Sounding Generic | CBCBS",
+  title: "How to Use an AI Resume Builder Without Sounding Generic | CV Builder",
   description:
-    "Learn what an ai resume builder really does, the advantages for job seekers, a proven step-by-step workflow, common mistakes, and FAQs—plus how CBCBS helps you ship stronger drafts faster.",
+    "Learn how to use an AI resume builder with a practical workflow, avoid generic output, and improve ATS-friendly resume quality for interviews.",
   openGraph: {
-    title: "How to Use an AI Resume Builder Without Sounding Generic | CBCBS",
+    title: "How to Use an AI Resume Builder Without Sounding Generic | CV Builder",
     description:
       "A practical guide to using an ai resume builder: clearer bullets, faster iterations, and recruiter-ready structure—without losing truth or credibility.",
     type: "article",

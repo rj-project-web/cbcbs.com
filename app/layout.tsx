@@ -14,8 +14,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CBCBS",
-  description: "Build job-winning resumes and cover letters with a modern AI workflow.",
+  title: "CV Builder | AI Resume Builder, Cover Letter Generator & ATS Tips",
+  description:
+    "CV Builder helps job seekers create ATS-friendly resumes, tailored cover letters, and keyword-aligned application content with practical AI workflows.",
 };
 
 type RootLayoutProps = Readonly<{

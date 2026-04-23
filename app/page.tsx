@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { FeatureCard } from "@/components/feature-card";
 import { SectionHeading } from "@/components/section-heading";
+
+export const metadata: Metadata = {
+  title: "AI Resume Builder & Cover Letter Generator | CV Builder",
+  description:
+    "Create ATS-friendly resumes, tailored cover letters, and role-specific drafts fast with CV Builder's AI resume builder workflow.",
+};
 
 const features = [
   {

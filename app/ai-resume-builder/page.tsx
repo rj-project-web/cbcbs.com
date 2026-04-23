@@ -6,13 +6,13 @@ import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
 
 export const metadata: Metadata = {
-  title: "AI Resume Builder | CBCBS — ATS-Friendly Resumes in Minutes",
+  title: "AI Resume Builder for ATS-Friendly Resumes | CV Builder",
   description:
-    "CBCBS is an AI resume builder that helps you draft ATS-friendly resumes and cover letters with clear structure, strong verbs, and recruiter-ready formatting.",
+    "Use CV Builder's AI resume builder to create ATS-friendly resume drafts, stronger bullet points, and tailored job application content in minutes.",
   openGraph: {
-    title: "AI Resume Builder | CBCBS",
+    title: "AI Resume Builder for ATS-Friendly Resumes | CV Builder",
     description:
-      "Build ATS-friendly resumes faster with CBCBS: guided inputs, AI drafting, and a modern workflow built for serious job seekers.",
+      "Build ATS-friendly resumes faster with guided inputs, AI drafting, and a practical workflow for high-intent job seekers.",
   },
 };
 
