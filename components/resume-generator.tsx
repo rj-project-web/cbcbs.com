@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 import {
   getFreeUsageRemaining,
@@ -52,16 +53,33 @@ export function ResumeGenerator() {
         body: JSON.stringify(values),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to generate resume.");
+      const rawText = await response.text();
+      let data: { content?: string; message?: string; details?: string };
+      try {
+        data = rawText ? (JSON.parse(rawText) as typeof data) : {};
+      } catch {
+        throw new Error(
+          !response.ok
+            ? `Request failed (${response.status}). ${rawText.slice(0, 240)}`
+            : "Invalid JSON response from server.",
+        );
       }
 
-      const data = (await response.json()) as { content: string };
+      if (!response.ok || !data.content) {
+        throw new Error(
+          data.details || data.message || "Failed to generate resume.",
+        );
+      }
+
       setResumeContent(data.content);
       incrementFreeUsage();
       setRemaining(getFreeUsageRemaining());
-    } catch {
-      setError("Failed to generate resume. Please try again.");
+    } catch (requestError) {
+      setError(
+        requestError instanceof Error
+          ? requestError.message
+          : "Failed to generate resume. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
@@ -77,11 +95,27 @@ export function ResumeGenerator() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <section className="card-lift rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-slate-950/20 sm:p-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-white">
-          AI Resume Generator
-        </h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-white">AI Resume Builder</h1>
         <p className="mt-3 text-sm text-slate-300">
-          Fill out your details and generate a resume in seconds.
+          This <strong className="font-semibold text-white">AI Resume Builder</strong> helps you
+          turn raw experience into structured, ATS-ready resume content in seconds.
+        </p>
+        <p className="mt-3 text-xs text-slate-400">
+          Build a complete application package with the{" "}
+          <Link
+            href="/cover-letter-generator"
+            className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
+          >
+            Cover Letter Generator
+          </Link>{" "}
+          and validate targeting via the{" "}
+          <Link
+            href="/ats-resume-checker"
+            className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
+          >
+            ATS Resume Checker
+          </Link>
+          .
         </p>
         <p className="mt-2 text-xs text-slate-400">
           Free uses remaining: {remaining}/3
@@ -135,14 +169,14 @@ export function ResumeGenerator() {
             disabled={loading}
             className="btn-lift rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {loading ? "Generating..." : "Generate Resume"}
+            {loading ? "Generating..." : "Generate with AI Resume Builder"}
           </button>
         </form>
       </section>
 
       <aside className="card-lift rounded-[1.75rem] border border-cyan-400/20 bg-slate-900/85 p-6 shadow-2xl shadow-cyan-950/10 sm:p-8">
         <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-5">
-          <h2 className="text-2xl font-semibold text-white">Generated Resume</h2>
+          <h2 className="text-2xl font-semibold text-white">AI Resume Builder Output</h2>
           <button
             type="button"
             onClick={handleCopy}
@@ -156,7 +190,7 @@ export function ResumeGenerator() {
         <div className="mt-6">
           {error ? <p className="text-sm text-rose-300">{error}</p> : null}
           <pre className="min-h-72 whitespace-pre-wrap rounded-2xl border border-white/10 bg-slate-950/50 p-4 text-sm leading-7 text-slate-100">
-            {resumeContent || 'Click "Generate Resume" to see output here.'}
+            {resumeContent || 'Click "Generate with AI Resume Builder" to see output here.'}
           </pre>
         </div>
       </aside>

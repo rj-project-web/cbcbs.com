@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SiteLinkHub } from "@/components/site-link-hub";
 
 import "./globals.css";
 
@@ -27,7 +28,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={inter.variable}>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            {children}
+            <SiteLinkHub />
+          </main>
           <SiteFooter />
         </div>
       </body>

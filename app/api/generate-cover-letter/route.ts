@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+/** Allow longer LLM calls on Vercel (Pro / higher limits apply). */
+export const maxDuration = 60;
+
 type CoverLetterPayload = {
   jobTitle?: string;
   background?: string;

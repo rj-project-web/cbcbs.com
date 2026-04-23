@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,26 +13,37 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-slate-200/10 bg-slate-950/70 backdrop-blur-2xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex items-center gap-3 text-sm font-semibold text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/95 text-xs font-bold tracking-wide text-slate-950 shadow-lg shadow-slate-950/20">
-            C
-          </span>
-          <span className="text-base tracking-tight">CBCBS</span>
+          <Image
+            src="/logo.jpg"
+            alt="CV Builder"
+            width={40}
+            height={40}
+            className="h-10 w-10 shrink-0 rounded-lg object-contain ring-1 ring-white/15"
+            priority
+            unoptimized
+          />
+          <span className="text-base tracking-tight">CV Builder</span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">
-          {navigation.map((item) => (
+          {navigation.map((item) => {
+            const isActive =
+              pathname === item.href ||
+              (item.matchPrefix ? pathname.startsWith(item.matchPrefix) : false);
+            return (
             <Link
               key={item.href}
               href={item.href}
               className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
-                pathname === item.href
+                isActive
                   ? "border border-cyan-300/30 bg-cyan-300/10 text-cyan-100"
                   : "text-slate-300 hover:bg-white/5 hover:text-white"
               }`}
             >
               {item.label}
             </Link>
-          ))}
+          );
+          })}
         </nav>
 
         <Link
