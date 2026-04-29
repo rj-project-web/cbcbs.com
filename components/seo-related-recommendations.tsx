@@ -32,15 +32,15 @@ const CORE_PAGES: RelatedItem[] = [
 ];
 
 type SeoRelatedRecommendationsProps = {
-  /** Current page path, e.g. `/seo/ai-resume-builder-for-students` or `/blog/ai-resume-builder` */
+  /** Current page path, e.g. `/blog/ai-resume-builder-for-students` or `/blog/ai-resume-builder` */
   currentPath: string;
 };
 
 export function SeoRelatedRecommendations({ currentPath }: SeoRelatedRecommendationsProps) {
   const siblingSeo: RelatedItem[] = LONG_TAIL_SLUGS.filter(
-    (slug) => `/seo/${slug}` !== currentPath,
+    (slug) => `/blog/${slug}` !== currentPath,
   ).map((slug) => ({
-    href: `/seo/${slug}`,
+    href: `/blog/${slug}`,
     title: LONG_TAIL_PAGES[slug].shortLabel,
     description: "Situation-specific guide with steps, FAQs, and CBCBS CTAs.",
   }));

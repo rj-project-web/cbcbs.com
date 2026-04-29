@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const seoEntries: MetadataRoute.Sitemap = LONG_TAIL_SLUGS.map((slug) => ({
-    url: `${SITE_URL}/seo/${slug}`,
+    url: `${SITE_URL}/blog/${slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.72,

@@ -45,7 +45,7 @@ export function SeoLongTailTemplate({ data }: SeoLongTailTemplateProps) {
         </ol>
       </section>
 
-      <SeoRelatedRecommendations currentPath={`/seo/${data.slug}`} />
+      <SeoRelatedRecommendations currentPath={`/blog/${data.slug}`} />
 
       <section className="mt-14">
         <h2 className="text-2xl font-semibold tracking-tight text-white">Frequently asked questions</h2>

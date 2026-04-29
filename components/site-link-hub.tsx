@@ -26,7 +26,7 @@ export function SiteLinkHub() {
         </p>
         <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-slate-300">
           {LONG_TAIL_SLUGS.map((slug) => (
-            <Link key={slug} href={`/seo/${slug}`} className="hover:text-white">
+            <Link key={slug} href={`/blog/${slug}`} className="hover:text-white">
               {LONG_TAIL_PAGES[slug].shortLabel}
             </Link>
           ))}

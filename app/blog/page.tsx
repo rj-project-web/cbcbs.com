@@ -66,7 +66,7 @@ export default function BlogIndexPage() {
         {LONG_TAIL_SLUGS.map((slug) => (
           <li key={slug}>
             <Link
-              href={`/seo/${slug}`}
+              href={`/blog/${slug}`}
               className="card-lift block rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-slate-200 shadow-lg shadow-slate-950/20 hover:text-cyan-200"
             >
               {LONG_TAIL_PAGES[slug].shortLabel}

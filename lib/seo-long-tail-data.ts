@@ -6,6 +6,10 @@ export const LONG_TAIL_SLUGS = [
   "ai-resume-builder-for-developers",
   "free-resume-generator-online",
   "ats-resume-checker-free",
+  "resume-for-software-engineer-example",
+  "resume-with-no-experience-example",
+  "how-to-write-a-resume-for-internship",
+  "ats-friendly-resume-template",
 ] as const;
 
 export type LongTailSlug = (typeof LONG_TAIL_SLUGS)[number];
@@ -367,6 +371,298 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
     ctaTitle: "Improve ATS-oriented resume content with CBCBS",
     ctaDescription:
       "Generate a structured draft, align keywords truthfully, then finalize formatting in a conservative template before you submit.",
+  },
+
+  "resume-for-software-engineer-example": {
+    slug: "resume-for-software-engineer-example",
+    shortLabel: "Resume for software engineer example",
+    metaTitle: "Resume for Software Engineer Example | CV Builder",
+    metaDescription:
+      "See a strong resume for software engineer example with structure, bullet patterns, and ATS keyword tips—plus a free AI resume builder to draft yours fast.",
+    eyebrow: "CV Builder · Engineering",
+    h1: "Resume for Software Engineer Example: Structure, Bullets, and Keywords That Actually Work",
+    intro: [
+      "If you searched for a resume for software engineer example, you are usually trying to answer one practical question: what does a strong, modern engineering resume actually look like? You do not just want a template—you want a resume for software engineer example that demonstrates how to phrase impact, structure experience, and pass ATS filters without sacrificing credibility.",
+      "Hiring managers in software engineering scan for very specific signals: ownership, scope, systems thinking, language and tooling depth, and outcomes. A great resume for software engineer example shows all of that compactly—without a wall of buzzwords, and without inflating your responsibilities.",
+      "This guide walks through a recommended structure, bullet-writing patterns that actually convert, the keywords engineering recruiters search for, and a step-by-step workflow so you can ship a clean draft today using CV Builder—our free AI resume builder for job seekers.",
+    ],
+    sections: [
+      {
+        h2: "What a strong resume for software engineer example looks like",
+        paragraphs: [
+          "A strong resume for software engineer example fits one page for early/mid-career and rarely exceeds two pages for senior or staff. It opens with a clear name + role line, contact info, optional links (GitHub, portfolio), and a 2–3 sentence summary that anchors your specialty (e.g., backend systems, ML infra, frontend platform).",
+          "Below the summary, the experience section leads with outcomes and quantification: latency reduced, throughput increased, on-call incidents decreased, build pipeline accelerated, customer features shipped. Each bullet should answer “what changed because of you?”—not just “what were you assigned?”",
+          "A skills section reinforces vocabulary recruiters search for: languages, frameworks, infrastructure, databases, observability tools, and methodologies (TDD, CI/CD). Education and certifications close the page. Avoid icons-as-text and complex columns that break ATS parsing.",
+        ],
+      },
+      {
+        h2: "Bullet patterns that work in any software engineer resume example",
+        paragraphs: [
+          "Use this skeleton: Verb + System/Surface + Outcome + Constraint or Scale. Example: ‘Reduced API p95 latency from 480ms to 120ms by introducing cursor-based pagination and Redis-backed caching across 14 services serving ~9M requests/day.’ Outcome and scale make the line specific.",
+          "Avoid filler verbs like ‘helped,’ ‘assisted,’ or ‘worked on.’ Lead with verbs like designed, shipped, migrated, automated, instrumented, refactored, parallelized. Where you led without holding a manager title, name the leadership: ‘led 3-engineer effort to migrate auth service from monolith to gRPC.’",
+          "Show systems thinking even on small projects: tradeoffs you considered, fallback behaviors, monitoring you added, blast radius reduction, rollout steps. These cues separate strong engineers from candidates who only describe features.",
+        ],
+      },
+      {
+        h2: "Keywords and ATS notes for a software engineering resume",
+        paragraphs: [
+          "Engineering ATS searches usually look for languages (TypeScript, Python, Go, Rust, Java), frameworks (React, Next.js, Spring, Django), data systems (PostgreSQL, Redis, Kafka, Snowflake), infra (Docker, Kubernetes, Terraform, AWS, GCP), and methodology terms (microservices, event-driven, observability, SLO/SLI). Mirror the posting’s exact spellings (e.g., ‘TypeScript’ not ‘Typescript’).",
+          "Place the most relevant skills in your summary line and the first bullet of your most recent role. ATS systems are biased toward early occurrences of matching terms, and human recruiters skim the same area first.",
+          "Avoid keyword stuffing. If you include ‘Kubernetes’ in your skills, be ready to explain a concrete change you made (manifest, autoscaler, HPA configuration, pod disruption budget). Truthful relevance always outperforms surface-level matching in interviews.",
+        ],
+      },
+    ],
+    steps: {
+      h2: "Step-by-step: build your software engineer resume with CV Builder",
+      items: [
+        "Pick the target role family (backend, frontend, full-stack, infra, ML) and read 5 postings; list repeated skills.",
+        "Write a fact sheet: each role’s scope, your contribution, key systems touched, and 1–2 numbers per project.",
+        "Draft a 2–3 sentence summary anchoring your specialty plus a standout proof point.",
+        "Open the CV Builder AI resume builder; paste your name, experience notes, and comma-separated skills aligned to the posting.",
+        "Generate a draft, then rewrite the top third bullet-by-bullet to add metrics, scale, and tradeoffs.",
+        "Cut anything you cannot defend in an interview. Specificity beats coverage.",
+        "Export, paste into a clean ATS-safe template, and tailor a short variant per employer.",
+      ],
+    },
+    faq: [
+      {
+        question: "How long should a software engineer resume be?",
+        answer:
+          "One page for 0–6 years, an optional second page for senior/staff with substantial scope. The goal is density of evidence, not page count.",
+      },
+      {
+        question: "Should I include side projects?",
+        answer:
+          "Yes—if they show real engineering: design choices, deployment, observability, or users. List 1–3 strong projects with concrete outcomes; skip half-built clones.",
+      },
+      {
+        question: "Do I need a separate skills section?",
+        answer:
+          "Yes. ATS searches often hit the skills block, and recruiters scan it for stack alignment in seconds. Keep it focused (15–25 items) and grouped by category if helpful.",
+      },
+    ],
+    ctaTitle: "Draft your software engineer resume with CV Builder",
+    ctaDescription:
+      "Generate a structured engineering resume with our free AI resume builder, then refine bullets with metrics, scale, and clear ownership.",
+  },
+
+  "resume-with-no-experience-example": {
+    slug: "resume-with-no-experience-example",
+    shortLabel: "Resume with no experience example",
+    metaTitle: "Resume With No Experience Example | CV Builder",
+    metaDescription:
+      "A practical resume with no experience example: structure, bullets, and what to emphasize when you’re early-career—plus a free AI resume builder to draft fast.",
+    eyebrow: "CV Builder · Early career",
+    h1: "Resume With No Experience Example: How to Build a Credible First Resume",
+    intro: [
+      "If you searched for a resume with no experience example, you probably feel stuck: you have skills and effort to show, but no formal job titles to anchor them. The good news is that recruiters do not expect a polished work history at this stage—they expect a clear, honest, well-structured resume that proves potential.",
+      "A strong resume with no experience example uses what you actually have: coursework, projects, internships, volunteer work, freelance gigs, certifications, and transferable soft skills. The challenge is converting those experiences into outcome-first language without exaggeration.",
+      "This guide gives you a working structure, bullet patterns that make ‘no experience’ resumes credible, mistakes to avoid, and a step-by-step workflow so you can produce a strong first draft today using CV Builder—a free AI resume builder built for job seekers.",
+    ],
+    sections: [
+      {
+        h2: "What to include in a resume with no experience example",
+        paragraphs: [
+          "Open with your name, a clear target role line (e.g., ‘Marketing Intern Candidate’), location, and contact details. Add a short 2–3 sentence summary that names what you bring: skills you can apply, your direction, and a relevant proof point (project, certification, or coursework).",
+          "Replace the typical ‘Experience’ section with sections that match what you have: ‘Projects,’ ‘Coursework Highlights,’ ‘Volunteer Experience,’ ‘Internships,’ ‘Freelance,’ or ‘Leadership.’ Order them by relevance to the role you’re applying to.",
+          "Close with Skills (tools, languages, soft skills) and Education. If you have certifications, awards, or scholarships, give them their own short section. Avoid stretching content with empty filler—dense and credible beats long and vague.",
+        ],
+      },
+      {
+        h2: "Bullet patterns that make a no-experience resume credible",
+        paragraphs: [
+          "Use the same outcome-first formula as professionals: Verb + What you did + Outcome + Context. Example: ‘Built a small Next.js portfolio site for a local bakery, increasing weekend pre-orders by ~20% over 4 weeks during a class capstone.’ Concrete numbers + scope make even a class project meaningful.",
+          "Translate transferable activities into language hiring teams recognize. ‘Coordinated a 12-person student group, set weekly deliverables, and kept a shared progress log’ shows ownership without inventing a job title.",
+          "Highlight learning velocity: ‘Self-taught Python by completing 3 dataset analysis projects in 6 weeks’ is more memorable than ‘Familiar with Python.’ Show what you produced, not just what you studied.",
+        ],
+      },
+      {
+        h2: "Common mistakes in resume with no experience examples",
+        paragraphs: [
+          "Mistake 1: Padding. Listing every course you took, every club you joined, or every minor task dilutes signal. Choose 3–5 strong items per section and go deep.",
+          "Mistake 2: Vague soft skills. ‘Hard worker, team player, fast learner’ carries little weight without proof. Embed those traits inside concrete bullets (‘led,’ ‘shipped,’ ‘organized,’ ‘rebuilt’).",
+          "Mistake 3: Hiding your direction. Recruiters move fast—if your resume doesn’t say what you want to do (intern, junior role, function, or industry), they won’t guess. State your target clearly in the summary.",
+        ],
+      },
+    ],
+    steps: {
+      h2: "Step-by-step: build a no-experience resume with CV Builder",
+      items: [
+        "Pick a target role and read 3–5 postings; list common skills and responsibilities.",
+        "List everything you have that maps to that role: projects, coursework, volunteering, certifications, freelance, and clubs.",
+        "Write 2–4 outcome-first bullets per item; include numbers when honest (hours, weeks, users, percentage improvements).",
+        "Draft a 2–3 sentence summary stating target role + your strongest proof point.",
+        "Open CV Builder’s free AI resume builder; paste your name, experience notes, and comma-separated skills.",
+        "Generate a draft, then tighten the top third so your strongest evidence is visible in 6 seconds of skimming.",
+        "Export, paste into a clean ATS-safe template, and adjust keywords per posting before submitting.",
+      ],
+    },
+    faq: [
+      {
+        question: "Can I really write a strong resume with no experience?",
+        answer:
+          "Yes. ‘No experience’ usually means no full-time job history—you almost always have coursework, projects, volunteer work, or freelance you can convert into proof of skill.",
+      },
+      {
+        question: "Should I include high school activities?",
+        answer:
+          "If you’re in college or recently graduated, prefer college-level evidence. Include high school content only if it’s genuinely relevant or impressive (national-level achievements, sustained projects).",
+      },
+      {
+        question: "How long should a no-experience resume be?",
+        answer:
+          "One page is ideal. Density and clarity matter more than length—every line should add evidence about who you are and what you can do.",
+      },
+    ],
+    ctaTitle: "Build your first credible resume with CV Builder",
+    ctaDescription:
+      "Use our free AI resume builder for job seekers to convert coursework, projects, and volunteer work into a strong first resume draft.",
+  },
+
+  "how-to-write-a-resume-for-internship": {
+    slug: "how-to-write-a-resume-for-internship",
+    shortLabel: "How to write a resume for internship",
+    metaTitle: "How to Write a Resume for Internship | CV Builder",
+    metaDescription:
+      "Step-by-step guide on how to write a resume for internship: structure, bullets, and ATS tips—plus a free AI resume builder to draft quickly.",
+    eyebrow: "CV Builder · Internships",
+    h1: "How to Write a Resume for Internship: A Complete, Actionable Guide",
+    intro: [
+      "Trying to figure out how to write a resume for internship roles is harder than it should be. Most online templates either feel too corporate for a student or too generic to stand out. The best internship resumes are clear, evidence-driven, and focused: they show direction, learning velocity, and a few proof points that map to the role.",
+      "Recruiters reviewing intern applications scan for fit signals fast: the role you’re aiming for, relevant projects, technical or research skills, and at least one outcome you can describe specifically. They don’t expect ten years of work—they expect honesty, structure, and clarity.",
+      "This guide walks you through how to write a resume for internship applications step-by-step: structure, what to emphasize, common mistakes, and a workflow you can run today with CV Builder—a free AI resume builder for job seekers and students.",
+    ],
+    sections: [
+      {
+        h2: "Internship resume structure that recruiters actually scan",
+        paragraphs: [
+          "Top of page: name, target internship line (e.g., ‘Software Engineering Intern Candidate’), email, phone, location, optional links (LinkedIn, GitHub, portfolio). Below that, a 2–3 sentence summary that names your major, the role you’re targeting, and a strong proof point.",
+          "Order sections by relevance, not by tradition. If your projects are stronger than your part-time work, lead with Projects. If you’ve had a previous internship or research role, lead with Experience. Education usually goes near the top for students; certifications and awards can sit near skills.",
+          "Use a single column, ATS-safe layout. Avoid icons-as-text, infographics, sidebars, and dense tables. Recruiters and ATS parsers both prefer plain, readable structure.",
+        ],
+      },
+      {
+        h2: "What to write in each section when applying for internships",
+        paragraphs: [
+          "Summary: state your year/major, the role you want, the function (backend, marketing analytics, design research, finance), and one strong proof point. Example: ‘Third-year CS student targeting backend SWE internship; shipped two production APIs as part of an open-source contributor program.’",
+          "Projects/Experience: write 3–5 outcome-first bullets per item. Include scope: team size, timeline, what you owned, what changed. Even small wins (‘reduced page load by 35%’) outperform vague statements (‘improved performance’).",
+          "Skills: split into clear categories if helpful (Languages, Frameworks, Tools, Soft Skills). Mirror the posting’s vocabulary where it matches your real experience. Education and Coursework can list 4–6 relevant courses—not your full transcript.",
+        ],
+      },
+      {
+        h2: "Common mistakes when writing a resume for internship roles",
+        paragraphs: [
+          "Listing every club, course, and side activity. Pick 3–5 strong items per section and go deeper instead of broader.",
+          "Treating responsibilities as outcomes. ‘Was responsible for…’ is weaker than ‘Built…,’ ‘Designed…,’ ‘Reduced…’. Lead with verbs and outcomes.",
+          "Inventing impressive metrics. If you can’t defend a number in an interview, take it out. Internship recruiters expect honest, specific evidence—not perfect numbers.",
+        ],
+      },
+    ],
+    steps: {
+      h2: "Step-by-step: how to write a resume for internship using CV Builder",
+      items: [
+        "Pick 1–2 target internship roles and read at least 3 postings each; list shared skills and responsibilities.",
+        "Collect your raw material: courses with deliverables, projects, hackathons, volunteer roles, freelance work, leadership, certifications.",
+        "Write each item as a fact sheet: scope, your contribution, tools, and a measurable outcome where honest.",
+        "Draft a 2–3 sentence summary anchoring your major, target role, and strongest proof point.",
+        "Open the CV Builder free AI resume builder; paste your name, experience notes, and comma-separated skills aligned to the posting.",
+        "Generate a draft, then edit the top third aggressively—first impression decides if recruiters keep reading.",
+        "Export, paste into a clean ATS-safe template, and tailor lightly for each company.",
+      ],
+    },
+    faq: [
+      {
+        question: "Should my internship resume be one page?",
+        answer:
+          "Yes. A single dense page outperforms a sparse two-page resume. Cut anything that doesn’t directly support your candidacy.",
+      },
+      {
+        question: "Should I include a GPA?",
+        answer:
+          "Include GPA if it’s strong for your industry or commonly expected (e.g., finance, consulting). If it’s not a strength, lead with projects, internships, and skills.",
+      },
+      {
+        question: "How do I show experience if I’ve never had a job?",
+        answer:
+          "Convert what you have: class projects, hackathons, volunteer work, clubs, and freelance gigs. Frame each as outcome-first bullets with concrete scope.",
+      },
+    ],
+    ctaTitle: "Write your internship resume with CV Builder",
+    ctaDescription:
+      "Use our free AI resume builder for job seekers and students to draft a structured internship resume in minutes.",
+  },
+
+  "ats-friendly-resume-template": {
+    slug: "ats-friendly-resume-template",
+    shortLabel: "ATS friendly resume template",
+    metaTitle: "ATS Friendly Resume Template Guide | CV Builder",
+    metaDescription:
+      "What an ATS friendly resume template actually looks like, what to avoid, and a workflow to build one fast with our free AI resume builder.",
+    eyebrow: "CV Builder · ATS",
+    h1: "ATS Friendly Resume Template: What Works (and What Quietly Breaks Parsing)",
+    intro: [
+      "Most resumes don’t get rejected because they’re bad—they get rejected because of formatting choices that confuse applicant tracking systems. If you’re searching for an ATS friendly resume template, you already know that layout matters as much as content. The wrong template can hide your strongest experience from both parsers and recruiters.",
+      "An ATS friendly resume template is not a fancy graphic file or a multi-column infographic. It’s a clean, single-column structure with standard headings, consistent dates, plain bullet points, and a layout that survives plain-text extraction. The visual style can still look polished—but parsing reliability has to come first.",
+      "This guide explains exactly what an ATS friendly resume template should look like, what features quietly hurt parsing, the structure that maximizes signal, and a step-by-step workflow you can run today with CV Builder—a free AI resume builder for job seekers.",
+    ],
+    sections: [
+      {
+        h2: "What makes an ATS friendly resume template actually ‘friendly’",
+        paragraphs: [
+          "Single-column layout. Two-column resumes look stylish but often get parsed in the wrong reading order—your skills column may merge with your experience text, scrambling meaning. Stick to one column for safety.",
+          "Standard section names: Summary, Experience, Education, Skills, Projects, Certifications. ATS parsers are trained to recognize these. Creative names like ‘My Journey’ or ‘What I Bring’ confuse classification.",
+          "Plain text bullets, normal hyphens, consistent dates (e.g., ‘Mar 2024 – Present’), and standard fonts (Inter, Helvetica, Arial, Calibri). Save as PDF only when the employer accepts it; some ATS prefer .docx—follow the posting’s instruction.",
+        ],
+      },
+      {
+        h2: "What to avoid in any ATS friendly resume template",
+        paragraphs: [
+          "Avoid icons replacing words. If you use a phone icon instead of the word ‘Phone’ or ‘Email,’ the parser may drop your contact info. Always include the actual word.",
+          "Avoid dense tables, embedded images, headers/footers, and text inside graphics. Anything visual that isn’t live, selectable text is a parsing risk.",
+          "Avoid keyword stuffing. ATS may tolerate it, but recruiters won’t. Use real keywords where they truthfully describe what you did. Repetition without context reduces credibility.",
+        ],
+      },
+      {
+        h2: "Structure: a recommended ATS friendly resume template skeleton",
+        paragraphs: [
+          "Header: Name, target role/title, city, email, phone, optional LinkedIn or portfolio. Keep this to 3–4 lines, no graphics.",
+          "Summary (2–3 sentences): role anchor + specialty + headline proof point. Skills (one block, grouped by category if helpful). Experience (most recent first; outcome-first bullets with metrics). Projects (if relevant). Education. Certifications/Awards.",
+          "Length: 1 page for early/mid-career; 2 pages only if you genuinely need it. Density of evidence matters more than length. Keep margins reasonable (0.6–1 inch) to preserve readability.",
+        ],
+      },
+    ],
+    steps: {
+      h2: "Step-by-step: create an ATS friendly resume template draft with CV Builder",
+      items: [
+        "Pick a target role and read 3–5 postings; list shared skills, responsibilities, and tools.",
+        "Build a fact sheet of your strongest evidence: roles, scope, tools, outcomes, and metrics.",
+        "Sketch the section order based on your strongest material (Experience-first or Projects-first depending on background).",
+        "Open the CV Builder free AI resume builder; paste your name, experience notes, and comma-separated skills aligned to the posting.",
+        "Generate the draft and rewrite the top third for clarity, scope, and verifiable metrics.",
+        "Move the content into a single-column ATS-safe template; verify standard section names, no icons-as-text, consistent dates.",
+        "Export PDF; do a quick plain-text extraction check to confirm structure survives parsing—then submit.",
+      ],
+    },
+    faq: [
+      {
+        question: "Is a Word or PDF resume more ATS friendly?",
+        answer:
+          "Most modern ATS handle both, but always follow the posting. If unspecified, PDF preserves layout reliably; .docx is safer for older systems. Avoid scanned PDFs (image-only).",
+      },
+      {
+        question: "Can I use color in an ATS friendly resume template?",
+        answer:
+          "Yes, modestly. Limit color to headings, dividers, or your name. Keep body text high-contrast (dark on white) and use selectable, plain text—not text inside images.",
+      },
+      {
+        question: "Do I need different templates for different jobs?",
+        answer:
+          "Usually one strong template is enough. Tailor the content (summary, top bullets, skills) per role; don’t rebuild the layout each time.",
+      },
+    ],
+    ctaTitle: "Get an ATS-ready resume draft with CV Builder",
+    ctaDescription:
+      "Use our free AI resume builder to generate clean, ATS-friendly resume content—then drop it into a single-column template before you submit.",
   },
 };
 

@@ -5,9 +5,9 @@ import { FeatureCard } from "@/components/feature-card";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
-  title: "AI Resume Builder & Cover Letter Generator | CV Builder",
+  title: "Free AI Resume Builder for Job Seekers | CV Builder",
   description:
-    "Create ATS-friendly resumes, tailored cover letters, and role-specific drafts fast with CV Builder's AI resume builder workflow.",
+    "Use a free AI resume builder for job seekers to create ATS-friendly resumes, tailored cover letters, and role-specific application drafts faster.",
 };
 
 const features = [
@@ -42,18 +42,19 @@ export default function HomePage() {
             </div>
 
             <h1 className="mt-8 max-w-4xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">
-              Build a Job-Winning Resume in Seconds
+              Free AI Resume Builder for Job Seekers
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Use AI to generate resumes and cover letters instantly
+              Generate ATS-friendly resumes and personalized cover letters in minutes with a
+              workflow built for modern job seekers.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
-                href="/resume-generator"
+                href="/ai-resume-builder-tool"
                 className="btn-lift rounded-full border border-blue-300/50 bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/40 transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300/70"
               >
-                Generate Your Resume
+                Open Free AI Resume Builder
               </Link>
               <Link
                 href="/cover-letter-generator"
@@ -87,7 +88,7 @@ export default function HomePage() {
                     AI Preview
                   </p>
                   <h2 className="mt-2 text-2xl font-semibold text-white">
-                    Land more interviews
+                    Designed for job seekers applying at scale
                   </h2>
                 </div>
                 <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
@@ -120,8 +121,8 @@ export default function HomePage() {
       <section className="mx-auto w-full max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
         <SectionHeading
           eyebrow="Why it works"
-          title="Everything you need to create better applications faster"
-          description="A lean product experience designed to feel modern, premium, and focused on getting candidates to a strong first draft quickly."
+          title="Everything job seekers need to build stronger applications faster"
+          description="A lean AI resume builder workflow focused on first-draft speed, ATS readability, and role-specific tailoring."
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -135,15 +136,15 @@ export default function HomePage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card-lift rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-slate-950/20">
             <SectionHeading
-              eyebrow="Resume Generator"
-              title="Turn your achievements into a crisp resume narrative"
-              description="The resume page helps users organize strengths, outcomes, and skills into a strong professional summary and scan-friendly sections."
+              eyebrow="Free AI Resume Builder"
+              title="Turn achievements into an ATS-friendly resume narrative"
+              description="The AI resume builder helps job seekers organize outcomes, strengths, and skills into a recruiter-friendly draft."
             />
             <Link
-              href="/resume-generator"
+              href="/ai-resume-builder-tool"
               className="btn-lift mt-8 inline-flex rounded-full border border-blue-300/50 bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/40 transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300/70"
             >
-              Open Resume Generator
+              Open AI Resume Builder
             </Link>
           </div>
 
