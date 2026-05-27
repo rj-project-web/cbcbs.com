@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { DomainSaleBanner } from "@/components/domain-sale-banner";
 import { navigation } from "@/lib/navigation";
 
 export function SiteHeader() {
@@ -11,6 +12,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/10 bg-slate-950/70 backdrop-blur-2xl">
+      <DomainSaleBanner />
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex items-center gap-3 text-sm font-semibold text-white">
           <Image

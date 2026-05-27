@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { llmFetch } from "@/lib/llm-fetch";
+
 /** Allow longer LLM calls on Vercel (Pro / higher limits apply). */
 export const maxDuration = 60;
 
@@ -52,7 +54,7 @@ export async function POST(request: Request) {
 
 请只返回简历正文（英文），不要添加额外解释。`;
 
-    const llmResponse = await fetch(`${baseUrl}/chat/completions`, {
+    const llmResponse = await llmFetch(`${baseUrl}/chat/completions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
