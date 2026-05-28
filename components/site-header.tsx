@@ -17,7 +17,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-3 text-sm font-semibold text-white">
           <Image
             src="/logo.jpg"
-            alt="CV Builder"
+            alt="CV Builder logo"
             width={40}
             height={40}
             className="h-10 w-10 shrink-0 rounded-lg object-contain ring-1 ring-white/15"
@@ -49,7 +49,7 @@ export function SiteHeader() {
         </nav>
 
         <Link
-          href="/resume-generator"
+          href="/ai-resume-builder-tool"
           className="btn-lift rounded-full border border-blue-300/50 bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-950/40 transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300/70"
         >
           Get Started

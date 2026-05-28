@@ -1,6 +1,10 @@
 import type { LongTailPageData } from "@/lib/seo-long-tail-types";
+import {
+  PHASE3_LONG_TAIL_PAGES,
+  PHASE3_LONG_TAIL_SLUGS,
+} from "@/lib/seo-long-tail-phase3";
 
-export const LONG_TAIL_SLUGS = [
+const BASE_LONG_TAIL_SLUGS = [
   "ai-resume-builder-for-students",
   "ai-resume-builder-for-freshers",
   "ai-resume-builder-for-developers",
@@ -12,21 +16,23 @@ export const LONG_TAIL_SLUGS = [
   "ats-friendly-resume-template",
 ] as const;
 
+export const LONG_TAIL_SLUGS = [...BASE_LONG_TAIL_SLUGS, ...PHASE3_LONG_TAIL_SLUGS] as const;
+
 export type LongTailSlug = (typeof LONG_TAIL_SLUGS)[number];
 
-export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
+const BASE_LONG_TAIL_PAGES: Record<(typeof BASE_LONG_TAIL_SLUGS)[number], LongTailPageData> = {
   "ai-resume-builder-for-students": {
     slug: "ai-resume-builder-for-students",
     shortLabel: "AI resume builder for students",
-    metaTitle: "AI Resume Builder for Students | CBCBS — Internships, Projects & First Jobs",
+    metaTitle: "AI Resume Builder for Students | CV Builder — Internships, Projects & First Jobs",
     metaDescription:
-      "Use an ai resume builder for students to turn coursework, internships, and campus projects into ATS-friendly bullets. Step-by-step workflow, FAQs, and CBCBS tools to ship a stronger student resume.",
-    eyebrow: "CBCBS · Student careers",
+      "Use an ai resume builder for students to turn coursework, internships, and campus projects into ATS-friendly bullets. Step-by-step workflow, FAQs, and CV Builder tools to ship a stronger student resume.",
+    eyebrow: "CV Builder · Student careers",
     h1: "AI Resume Builder for Students: Turn Coursework and Projects Into Interview-Ready Proof",
     intro: [
       "If you are searching for an ai resume builder for students, you are usually trying to solve one painful problem: you have potential, but your resume still reads like a class schedule. Hiring managers do not want a list of courses—they want evidence that you can learn fast, collaborate, and deliver outcomes, even when you have limited full-time experience.",
       "The right ai resume builder for students should help you translate student life into professional language: research projects, club leadership, internships, part-time work, volunteer impact, and technical portfolios. The goal is not to sound older than you are—it is to sound clear, credible, and specific about what you have already done.",
-      "CBCBS is built around a simple workflow: structured inputs, a fast draft, and copy-friendly output you can refine. This page explains why student resumes fail, what to emphasize, how to use an AI workflow responsibly, and how to move from draft to submission with confidence.",
+      "CV Builder is built around a simple workflow: structured inputs, a fast draft, and copy-friendly output you can refine. This page explains why student resumes fail, what to emphasize, how to use an AI workflow responsibly, and how to move from draft to submission with confidence.",
     ],
     sections: [
       {
@@ -54,12 +60,12 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
       },
     ],
     steps: {
-      h2: "Step-by-step: using an ai resume builder for students with CBCBS",
+      h2: "Step-by-step: using an ai resume builder for students with CV Builder",
       items: [
         "Collect a fact sheet: internships, projects, metrics, tools, dates, and your personal contribution—not only group outcomes.",
         "Pick 1–2 target roles (internship titles) and skim job descriptions for recurring skills and responsibilities.",
         "Write your experience as raw notes with outcomes first; avoid copying course descriptions verbatim.",
-        "Open the CBCBS resume generator, enter your name, experience notes, and comma-separated skills aligned to the posting.",
+        "Open the CV Builder resume generator, enter your name, experience notes, and comma-separated skills aligned to the posting.",
         "Generate a draft, then edit the top third: summary and first bullets should match the role in seconds of skimming.",
         "Cut generic claims, verify every number, and rehearse interview answers for each bullet you keep.",
         "Export into your final template, check ATS-friendly formatting, and tailor a small variant per employer when applying in batches.",
@@ -82,7 +88,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
           "Include GPA if it is strong for your target industry or if employers in your field commonly expect it. If GPA is not a strength, emphasize projects, skills, and measurable outcomes instead—while staying honest.",
       },
     ],
-    ctaTitle: "Generate your student resume draft with CBCBS",
+    ctaTitle: "Generate your student resume draft with CV Builder",
     ctaDescription:
       "Use the AI resume generator to produce a structured draft, then refine it for internships and entry-level roles.",
   },
@@ -90,15 +96,15 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
   "ai-resume-builder-for-freshers": {
     slug: "ai-resume-builder-for-freshers",
     shortLabel: "AI resume builder for freshers",
-    metaTitle: "AI Resume Builder for Freshers | CBCBS — First Role, Clear Story, ATS-Friendly",
+    metaTitle: "AI Resume Builder for Freshers | CV Builder — First Role, Clear Story, ATS-Friendly",
     metaDescription:
-      "An ai resume builder for freshers helps you convert academic and internship experience into recruiter-ready bullets. Steps, FAQs, and CBCBS tools for faster, clearer fresher resumes.",
-    eyebrow: "CBCBS · Early career",
+      "An ai resume builder for freshers helps you convert academic and internship experience into recruiter-ready bullets. Steps, FAQs, and CV Builder tools for faster, clearer fresher resumes.",
+    eyebrow: "CV Builder · Early career",
     h1: "AI Resume Builder for Freshers: Build a Credible First Resume Without Generic Buzzwords",
     intro: [
       "Searching for an ai resume builder for freshers usually means you are transitioning from campus-style writing to employer-style proof. You may have internships, training, certifications, and projects—but your resume still reads uncertain, repetitive, or too long for a single page.",
       "The best ai resume builder for freshers workflow is not about sounding senior. It is about clarity: what you shipped, what you learned, what tools you used, and what outcomes you can defend in a screening call. Recruiters hiring freshers are often looking for learning speed, ownership, and communication—not a pretend five years of experience.",
-      "CBCBS helps you compress your story into a structured English resume draft you can copy, edit, and tailor. Below, you will find practical guidance for fresher resumes, a repeatable step-by-step process, FAQs, and CTAs to the CBCBS tools.",
+      "CV Builder helps you compress your story into a structured English resume draft you can copy, edit, and tailor. Below, you will find practical guidance for fresher resumes, a repeatable step-by-step process, FAQs, and CTAs to the CV Builder tools.",
     ],
     sections: [
       {
@@ -114,7 +120,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
         paragraphs: [
           "Mistake one: copying job descriptions into your resume without tying them to your actual work. AI can help rewrite language, but you must connect each line to something you truly did.",
           "Mistake two: hiding impact behind responsibilities. Replace “responsible for” with what you delivered, learned, or improved—especially with numbers when possible.",
-          "Mistake three: inconsistent formatting that breaks ATS parsing. Start with clean generated text from CBCBS, then place it into a conservative template and verify exports before you submit to portals.",
+          "Mistake three: inconsistent formatting that breaks ATS parsing. Start with clean generated text from CV Builder, then place it into a conservative template and verify exports before you submit to portals.",
         ],
       },
       {
@@ -126,12 +132,12 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
       },
     ],
     steps: {
-      h2: "Step-by-step: fresher resume workflow with CBCBS",
+      h2: "Step-by-step: fresher resume workflow with CV Builder",
       items: [
         "Write a master list of experiences: internships, training programs, projects, certifications, volunteer work, and leadership roles.",
         "Select one target job family (for example: software engineer fresher, business analyst fresher) and study 3–5 postings for repeated skills.",
         "Draft raw bullets in plain notes: problem, action, result—one idea per bullet.",
-        "Use the CBCBS resume generator with your name, experience notes, and comma-separated skills aligned to the posting.",
+        "Use the CV Builder resume generator with your name, experience notes, and comma-separated skills aligned to the posting.",
         "Generate a draft, then rewrite the summary so it matches the role in one screen.",
         "Remove duplicates, tighten metrics, and ensure dates and titles match your official records.",
         "Create tailored variants for different employers by adjusting keywords in the top third—without changing facts.",
@@ -141,7 +147,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
       {
         question: "Is an ai resume builder for freshers enough without a cover letter?",
         answer:
-          "A resume carries proof; a cover letter can explain motivation, relocation, or career pivots. If you apply to selective programs, pairing both often improves clarity—CBCBS includes a cover letter generator for that reason.",
+          "A resume carries proof; a cover letter can explain motivation, relocation, or career pivots. If you apply to selective programs, pairing both often improves clarity—CV Builder includes a cover letter generator for that reason.",
       },
       {
         question: "How long should a fresher resume be?",
@@ -154,7 +160,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
           "Add specifics only you know: tool versions, constraints, team dynamics, tradeoffs, and lessons learned. Remove generic phrases, then read aloud—if it sounds like a template, rewrite until it sounds like you with better structure.",
       },
     ],
-    ctaTitle: "Build your fresher resume draft on CBCBS",
+    ctaTitle: "Build your fresher resume draft on CV Builder",
     ctaDescription:
       "Generate a structured resume draft, refine it for your target role, and add a cover letter when you need more context.",
   },
@@ -162,15 +168,15 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
   "ai-resume-builder-for-developers": {
     slug: "ai-resume-builder-for-developers",
     shortLabel: "AI resume builder for developers",
-    metaTitle: "AI Resume Builder for Developers | CBCBS — Impact, Systems, and ATS-Friendly Tech Resumes",
+    metaTitle: "AI Resume Builder for Developers | CV Builder — Impact, Systems, and ATS-Friendly Tech Resumes",
     metaDescription:
-      "Use an ai resume builder for developers to translate shipping work into strong bullets: reliability, scale, ownership, and outcomes. Steps, FAQs, and CBCBS resume + cover letter tools.",
-    eyebrow: "CBCBS · Engineering",
+      "Use an ai resume builder for developers to translate shipping work into strong bullets: reliability, scale, ownership, and outcomes. Steps, FAQs, and CV Builder resume + cover letter tools.",
+    eyebrow: "CV Builder · Engineering",
     h1: "AI Resume Builder for Developers: Write Resumes That Sound Like Shipping—Not Buzzword Bingo",
     intro: [
       "If you are looking for an ai resume builder for developers, you probably care about a different failure mode than most candidates: your resume does not reflect the complexity of your work. You shipped services, improved reliability, reduced latency, hardened security, or scaled data pipelines—but the page still reads like a list of frameworks.",
       "A strong developer resume proves impact: what changed in production, what broke and how you fixed it, what you owned end-to-end, and how you collaborated across product, design, and infrastructure. The right ai resume builder for developers helps you compress technical depth into recruiter-scannable bullets while keeping claims truthful and interview-ready.",
-      "CBCBS supports a practical loop: structured inputs, a generated draft, copy-out editing, and tailoring for each company. This guide covers what to emphasize, how to avoid generic “tech stack soup,” and a step-by-step workflow you can repeat for every application cycle.",
+      "CV Builder supports a practical loop: structured inputs, a generated draft, copy-out editing, and tailoring for each company. This guide covers what to emphasize, how to avoid generic “tech stack soup,” and a step-by-step workflow you can repeat for every application cycle.",
     ],
     sections: [
       {
@@ -198,12 +204,12 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
       },
     ],
     steps: {
-      h2: "Step-by-step: developer resume generation with CBCBS",
+      h2: "Step-by-step: developer resume generation with CV Builder",
       items: [
         "Build a technical fact sheet: systems you touched, metrics, on-call responsibilities, languages, repos (if public), and notable incidents you led or mitigated.",
         "Pick a target role track (backend, frontend, full-stack, mobile, data, ML, infra) and align language to that track.",
         "Translate each project into problem → action → result bullets; include scale signals (QPS, latency, cost, users, data volume) when accurate.",
-        "Enter your name, experience notes, and comma-separated skills into the CBCBS resume generator.",
+        "Enter your name, experience notes, and comma-separated skills into the CV Builder resume generator.",
         "Generate a draft, then rewrite the top third for role fit: your strongest proof should appear immediately.",
         "Remove buzzwords, verify metrics, and rehearse deep-dive questions for each bullet.",
         "Tailor keywords per employer while keeping facts stable; pair with a cover letter for narrative-heavy applications.",
@@ -226,7 +232,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
           "Yes, by helping you align phrasing to common industry terms—without stuffing. You should still manually verify that every keyword reflects work you can explain under pressure.",
       },
     ],
-    ctaTitle: "Ship a stronger developer resume draft with CBCBS",
+    ctaTitle: "Ship a stronger developer resume draft with CV Builder",
     ctaDescription:
       "Generate structured resume text, refine for role fit, and add a cover letter when you need more narrative context.",
   },
@@ -234,15 +240,15 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
   "free-resume-generator-online": {
     slug: "free-resume-generator-online",
     shortLabel: "Free resume generator online",
-    metaTitle: "Free Resume Generator Online | CBCBS — Fast Drafts, ATS-Oriented English Output",
+    metaTitle: "Free Resume Generator Online | CV Builder — Fast Drafts, ATS-Oriented English Output",
     metaDescription:
-      "Use a free resume generator online to create structured English resume drafts quickly. Learn steps, FAQs, and how CBCBS helps you iterate without heavy templates on day one.",
-    eyebrow: "CBCBS · Free tools",
+      "Use a free resume generator online to create structured English resume drafts quickly. Learn steps, FAQs, and how CV Builder helps you iterate without heavy templates on day one.",
+    eyebrow: "CV Builder · Free tools",
     h1: "Free Resume Generator Online: Get a Structured Draft Fast (Without Fighting Your Editor)",
     intro: [
       "When people search for a free resume generator online, they usually want speed: a credible draft today, not a weekend lost to formatting rabbit holes. The best online generators reduce friction: simple inputs, readable output, and a path to copy, edit, and tailor for each employer.",
       "A free resume generator online should still respect credibility. The output is a draft, not a replacement for your judgment. The strongest candidates use generators to accelerate structure and phrasing, then manually verify facts, tighten metrics, and align keywords with each job description.",
-      "CBCBS is designed for that loop: you provide your name, experience narrative, and comma-separated skills; the tool returns resume text you can refine. This page outlines benefits, a practical workflow, FAQs, and CTAs to start generating immediately.",
+      "CV Builder is designed for that loop: you provide your name, experience narrative, and comma-separated skills; the tool returns resume text you can refine. This page outlines benefits, a practical workflow, FAQs, and CTAs to start generating immediately.",
     ],
     sections: [
       {
@@ -257,24 +263,24 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
         h2: "What to watch out for with any free resume generator online",
         paragraphs: [
           "Watch for vague outputs: if bullets could apply to thousands of people, your inputs were too thin. Watch for invented metrics: never ship numbers you cannot defend. Watch for layout risk: start with clean text, then migrate into a conservative template for final PDF export.",
-          "Also watch for mismatch between “free” and sustainability: lightweight tools can stay simple and fast. CBCBS focuses on a straightforward generator experience so you can move from draft to application quickly.",
+          "Also watch for mismatch between “free” and sustainability: lightweight tools can stay simple and fast. CV Builder focuses on a straightforward generator experience so you can move from draft to application quickly.",
         ],
       },
       {
         h2: "When a free resume generator online is the wrong tool (and what to do instead)",
         paragraphs: [
-          "If you have no raw accomplishments captured yet, no generator can invent a career. Start by documenting projects and outcomes, then return to generation. If you need highly visual design-heavy resumes for creative fields, you may still use CBCBS for text first, then move into a design tool for layout.",
-          "If you are applying internationally, verify norms for CV length, photo requirements, and personal information rules by market. CBCBS output is a strong baseline for English-first roles, but you should still adapt to local conventions where needed.",
+          "If you have no raw accomplishments captured yet, no generator can invent a career. Start by documenting projects and outcomes, then return to generation. If you need highly visual design-heavy resumes for creative fields, you may still use CV Builder for text first, then move into a design tool for layout.",
+          "If you are applying internationally, verify norms for CV length, photo requirements, and personal information rules by market. CV Builder output is a strong baseline for English-first roles, but you should still adapt to local conventions where needed.",
         ],
       },
     ],
     steps: {
-      h2: "Step-by-step: CBCBS free resume generator online workflow",
+      h2: "Step-by-step: CV Builder free resume generator online workflow",
       items: [
         "Collect your experience as notes with outcomes, not only responsibilities.",
         "Choose one target job description and highlight repeated skills and themes.",
         "Prepare comma-separated skills aligned to the posting (truthfully).",
-        "Open the CBCBS resume generator and enter your name, experience, and skills.",
+        "Open the CV Builder resume generator and enter your name, experience, and skills.",
         "Generate a draft, then edit the summary and top bullets for skimmability.",
         "Remove generic lines, verify facts, and rehearse interview prompts for each bullet.",
         "Paste into your final template, export, and do a quick plain-text extraction check before submitting to ATS portals.",
@@ -294,10 +300,10 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
       {
         question: "Do I still need a cover letter?",
         answer:
-          "Often yes for competitive roles. CBCBS includes a cover letter generator so you can keep resume proof and letter narrative consistent.",
+          "Often yes for competitive roles. CV Builder includes a cover letter generator so you can keep resume proof and letter narrative consistent.",
       },
     ],
-    ctaTitle: "Try CBCBS as your free resume generator online",
+    ctaTitle: "Try CV Builder as your free resume generator online",
     ctaDescription:
       "Generate a draft in minutes, copy it out, refine for each role, and pair with a cover letter when needed.",
   },
@@ -305,15 +311,15 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
   "ats-resume-checker-free": {
     slug: "ats-resume-checker-free",
     shortLabel: "ATS resume checker free",
-    metaTitle: "ATS Resume Checker Free Guide | CBCBS — Parseability, Keywords, and Clean Drafts",
+    metaTitle: "ATS Resume Checker Free Guide | CV Builder — Parseability, Keywords, and Clean Drafts",
     metaDescription:
-      "Learn what an ats resume checker free workflow means in practice: ATS readability, truthful keyword alignment, and clean resume text—plus CBCBS tools to generate and refine drafts.",
-    eyebrow: "CBCBS · ATS",
+      "Learn what an ats resume checker free workflow means in practice: ATS readability, truthful keyword alignment, and clean resume text—plus CV Builder tools to generate and refine drafts.",
+    eyebrow: "CV Builder · ATS",
     h1: "ATS Resume Checker Free: A Practical Checklist Mindset (Plus Cleaner Resume Text)",
     intro: [
       "If you searched for an ats resume checker free, you might be imagining a magic scan button. In reality, most “free ATS checking” value comes from a checklist: can your resume be parsed reliably, do your headings make sense, and do your strongest keywords appear in natural context aligned with the job description?",
       "ATS systems vary by employer and vendor, so no consumer tool can guarantee a perfect score for every company. What you can do—especially with a free-oriented workflow—is reduce obvious risk: inconsistent dates, unusual columns, icons replacing text, dense tables, and keyword stuffing that reads unnatural to humans.",
-      "CBCBS helps on the content side by generating ATS-oriented resume text with clear structure and bullet-first formatting. You can then paste into a proven template, export, and validate text extraction. This page explains how to think like an ATS resume checker free workflow, step-by-step actions, FAQs, and where to start with CBCBS tools.",
+      "CV Builder helps on the content side by generating ATS-oriented resume text with clear structure and bullet-first formatting. You can then paste into a proven template, export, and validate text extraction. This page explains how to think like an ATS resume checker free workflow, step-by-step actions, FAQs, and where to start with CV Builder tools.",
     ],
     sections: [
       {
@@ -325,17 +331,17 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
         ],
       },
       {
-        h2: "How CBCBS fits an ATS-oriented workflow",
+        h2: "How CV Builder fits an ATS-oriented workflow",
         paragraphs: [
-          "CBCBS focuses on generating clean English resume drafts you can migrate into conservative templates—reducing the risk that your content is strong but your layout breaks parsing. Pair resume drafting with tailoring: adjust skills and top bullets per posting while keeping facts stable.",
-          "For deeper reading, CBCBS also offers dedicated SEO guide pages on ATS topics. Use them as a companion checklist while you finalize exports and submission formats.",
+          "CV Builder focuses on generating clean English resume drafts you can migrate into conservative templates—reducing the risk that your content is strong but your layout breaks parsing. Pair resume drafting with tailoring: adjust skills and top bullets per posting while keeping facts stable.",
+          "For deeper reading, CV Builder also offers dedicated SEO guide pages on ATS topics. Use them as a companion checklist while you finalize exports and submission formats.",
         ],
       },
       {
         h2: "Beyond “checking”: build a repeatable ATS improvement loop",
         paragraphs: [
           "Treat ATS like a release process: measure, change one variable, re-test. Each time you apply, note which postings get responses and whether your resume variant differed. Over a few weeks, you will learn which keywords and proof points correlate with callbacks in your niche.",
-          "An ats resume checker free mindset is not a single score—it is continuous improvement. CBCBS helps you regenerate text quickly so you can run more iterations without burning weekends on formatting.",
+          "An ats resume checker free mindset is not a single score—it is continuous improvement. CV Builder helps you regenerate text quickly so you can run more iterations without burning weekends on formatting.",
         ],
       },
     ],
@@ -345,7 +351,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
         "Save the target job description and highlight repeated skills, tools, and responsibilities.",
         "Compare those signals to your resume’s top third: summary, skills, and first bullets.",
         "Rewrite vague bullets into outcome-first statements with metrics where truthful.",
-        "Generate refreshed resume text with the CBCBS resume generator using updated skills and experience notes.",
+        "Generate refreshed resume text with the CV Builder resume generator using updated skills and experience notes.",
         "Paste into your final template; avoid risky layouts (heavy columns, icons-as-text, dense tables).",
         "Export PDF and run a quick plain-text extraction check in your editor.",
         "Submit—and keep a tailored variant per employer when applying in volume.",
@@ -358,9 +364,9 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
           "No universal score exists across employers. Focus on reducing parse risk and improving truthful relevance rather than chasing opaque numbers.",
       },
       {
-        question: "Does CBCBS upload and scan my PDF?",
+        question: "Does CV Builder upload and scan my PDF?",
         answer:
-          "CBCBS emphasizes generating clean, structured resume text you can place into your own template and validate. Always verify final exports yourself before submitting to any portal.",
+          "CV Builder emphasizes generating clean, structured resume text you can place into your own template and validate. Always verify final exports yourself before submitting to any portal.",
       },
       {
         question: "What is the fastest win for ATS readability?",
@@ -368,7 +374,7 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
           "Use standard headings, consistent dates, and bullet-first experience blocks. Put the strongest role-relevant proof at the top of your experience section.",
       },
     ],
-    ctaTitle: "Improve ATS-oriented resume content with CBCBS",
+    ctaTitle: "Improve ATS-oriented resume content with CV Builder",
     ctaDescription:
       "Generate a structured draft, align keywords truthfully, then finalize formatting in a conservative template before you submit.",
   },
@@ -664,6 +670,11 @@ export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
     ctaDescription:
       "Use our free AI resume builder to generate clean, ATS-friendly resume content—then drop it into a single-column template before you submit.",
   },
+};
+
+export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
+  ...BASE_LONG_TAIL_PAGES,
+  ...PHASE3_LONG_TAIL_PAGES,
 };
 
 export function getLongTailPage(slug: string): LongTailPageData | undefined {

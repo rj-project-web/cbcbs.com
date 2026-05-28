@@ -8,11 +8,10 @@ export function SiteFooter() {
           <div className="flex items-center gap-2.5">
             <Image
               src="/logo.jpg"
-              alt=""
+              alt="CV Builder logo"
               width={32}
               height={32}
               className="h-8 w-8 shrink-0 rounded-md object-contain ring-1 ring-white/10"
-              aria-hidden
               unoptimized
             />
             <p className="text-base font-semibold text-slate-100">CV Builder</p>

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { llmFetch } from "@/lib/llm-fetch";
+import { requestLlmChatCompletion } from "@/lib/llm-chat";
 
 /** Allow longer LLM calls on Vercel (Pro / higher limits apply). */
 export const maxDuration = 60;
@@ -26,17 +26,6 @@ export async function POST(request: Request) {
       );
     }
 
-    const baseUrl = (process.env.OPENAI_BASE_URL ?? "https://api.openai.com/v1").replace(
-      /\/$/,
-      "",
-    );
-    const apiKey = process.env.OPENAI_API_KEY;
-    const model = process.env.OPENAI_MODEL ?? "gpt-4o-mini";
-
-    if (!apiKey) {
-      return NextResponse.json({ message: "Missing OPENAI_API_KEY." }, { status: 500 });
-    }
-
     const prompt = `你是一名专业的求职信优化专家，请根据用户提供的信息生成一封专业、简洁、符合ATS系统偏好的英文求职信。
 
 要求：
@@ -52,62 +41,26 @@ export async function POST(request: Request) {
 
 请只返回求职信正文（英文），不要添加任何解释、标题前缀或代码块标记。`;
 
-    const llmResponse = await llmFetch(`${baseUrl}/chat/completions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+    const result = await requestLlmChatCompletion([
+      {
+        role: "system",
+        content:
+          "You are an expert cover letter writing specialist. Always return polished English cover letter body text only.",
       },
-      body: JSON.stringify({
-        model,
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are an expert cover letter writing specialist. Always return polished English cover letter body text only.",
-          },
-          {
-            role: "user",
-            content: prompt,
-          },
-        ],
-        temperature: 0.7,
-      }),
-    });
+      {
+        role: "user",
+        content: prompt,
+      },
+    ]);
 
-    if (!llmResponse.ok) {
-      const errorText = await llmResponse.text();
+    if (!result.ok) {
       return NextResponse.json(
-        {
-          message: `LLM request failed with status ${llmResponse.status}.`,
-          details: errorText.slice(0, 1000),
-        },
-        { status: 500 },
+        { message: result.message, details: result.details },
+        { status: result.status },
       );
     }
 
-    const data = (await llmResponse.json()) as {
-      choices?: Array<{
-        message?: {
-          content?: string;
-        };
-      }>;
-    };
-
-    const content = data.choices?.[0]?.message?.content?.trim();
-
-    if (!content) {
-      return NextResponse.json(
-        {
-          message:
-            "LLM response parsed, but no content found at choices[0].message.content.",
-          details: JSON.stringify(data).slice(0, 1000),
-        },
-        { status: 500 },
-      );
-    }
-
-    return NextResponse.json({ content });
+    return NextResponse.json({ content: result.content });
   } catch (error: unknown) {
     let details = "Unknown server error.";
     if (error instanceof Error) {

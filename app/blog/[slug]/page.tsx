@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { SeoLongTailTemplate } from "@/components/seo-long-tail-template";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 import { getLongTailPage, LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-data";
 
 type PageProps = {
@@ -19,19 +20,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Not found | CV Builder" };
   }
 
-  return {
+  return buildPageMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
-    alternates: {
-      canonical: `/blog/${data.slug}`,
-    },
-    openGraph: {
-      title: data.metaTitle,
-      description: data.metaDescription,
-      type: "article",
-      url: `/blog/${data.slug}`,
-    },
-  };
+    path: `/blog/${data.slug}`,
+    openGraphType: "article",
+  });
 }
 
 export default async function BlogLongTailSlugPage({ params }: PageProps) {

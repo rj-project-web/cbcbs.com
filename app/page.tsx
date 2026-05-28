@@ -3,12 +3,14 @@ import Link from "next/link";
 
 import { FeatureCard } from "@/components/feature-card";
 import { SectionHeading } from "@/components/section-heading";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Free AI Resume Builder for Job Seekers | CV Builder",
   description:
     "Use a free AI resume builder for job seekers to create ATS-friendly resumes, tailored cover letters, and role-specific application drafts faster.",
-};
+  path: "/",
+});
 
 const features = [
   {
@@ -38,7 +40,7 @@ export default function HomePage() {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-16 px-6 py-20 lg:flex-row lg:items-center lg:justify-between lg:px-10 lg:py-28">
           <div className="max-w-3xl">
             <div className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200">
-              CBCBS - AI Job Toolkit
+              CV Builder - AI Job Toolkit
             </div>
 
             <h1 className="mt-8 max-w-4xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">

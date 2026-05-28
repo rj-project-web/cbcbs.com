@@ -1,36 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { SeoCtaBlock } from "@/components/seo-cta-block";
+import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
+import { buildPageMetadata } from "@/lib/seo-metadata";
+import { breadcrumbListJsonLd, faqPageJsonLd } from "@/lib/seo-json-ld";
 
-export const metadata: Metadata = {
-  title: "AI Resume Builder for ATS-Friendly Resumes | CV Builder",
+export const metadata: Metadata = buildPageMetadata({
+  title: "AI Resume Builder Guide: ATS Tips & Workflow | CV Builder",
   description:
-    "Use CV Builder's AI resume builder to create ATS-friendly resume drafts, stronger bullet points, and tailored job application content in minutes.",
-  openGraph: {
-    title: "AI Resume Builder for ATS-Friendly Resumes | CV Builder",
-    description:
-      "Build ATS-friendly resumes faster with guided inputs, AI drafting, and a practical workflow for high-intent job seekers.",
-  },
-};
+    "Learn how CV Builder's AI resume builder creates ATS-friendly drafts, stronger bullet points, and tailored job application content—with a practical step-by-step workflow.",
+  path: "/ai-resume-builder",
+});
 
 const faqItems = [
   {
-    question: "What makes CBCBS different from a generic AI resume builder?",
+    question: "What makes CV Builder different from a generic AI resume builder?",
     answer:
-      "CBCBS focuses on outcomes that hiring teams actually scan for: tight storytelling, measurable impact, and ATS-friendly structure. Instead of dumping buzzwords, the workflow pushes you to supply real experience details so the model can shape them into a coherent narrative.",
+      "CV Builder focuses on outcomes that hiring teams actually scan for: tight storytelling, measurable impact, and ATS-friendly structure. Instead of dumping buzzwords, the workflow pushes you to supply real experience details so the model can shape them into a coherent narrative.",
   },
   {
     question: "Is an AI-built resume ATS compliant?",
     answer:
-      "ATS systems parse plain text and common section patterns. CBCBS prompts the model to return clean, readable English with standard headings and bullet points—formats that tend to parse reliably. You should still proofread and align keywords with each job description you target.",
+      "ATS systems parse plain text and common section patterns. CV Builder prompts the model to return clean, readable English with standard headings and bullet points—formats that tend to parse reliably. You should still proofread and align keywords with each job description you target.",
   },
   {
-    question: "Do I need to pay to try the CBCBS resume generator?",
+    question: "Do I need to pay to try the CV Builder resume generator?",
     answer:
-      "You can start with the free generator flow on CBCBS to produce drafts quickly. For production-scale usage or teams, you may upgrade later—but the goal is to get you to a strong first draft immediately.",
+      "You can start with the free generator flow on CV Builder to produce drafts quickly. For production-scale usage or teams, you may upgrade later—but the goal is to get you to a strong first draft immediately.",
   },
   {
     question: "Can I edit the resume after generation?",
@@ -42,8 +42,18 @@ const faqItems = [
 export default function AiResumeBuilderPage() {
   return (
     <SeoPageLayout>
+      <JsonLd
+        data={[
+          breadcrumbListJsonLd([
+            { name: "Home", path: "/" },
+            { name: "AI Resume Builder", path: "/ai-resume-builder" },
+          ]),
+          faqPageJsonLd(faqItems),
+        ]}
+      />
+      <SeoInternalToolLinks variant="ai-resume-builder" />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-        CBCBS · AI Resume Builder
+        CV Builder · AI Resume Builder
       </p>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
         AI Resume Builder for Modern Job Seekers Who Need ATS-Friendly Results Fast
@@ -54,16 +64,16 @@ export default function AiResumeBuilderPage() {
         you are under time pressure: interviews are coming, your old resume is outdated, and you
         need something that reads like a real product manager, marketer, engineer, or operator—not
         a generic template stuffed with adjectives.{" "}
-        <strong className="font-semibold text-white">CBCBS</strong> is built around a simple idea:
+        <strong className="font-semibold text-white">CV Builder</strong> is built around a simple idea:
         guide you through the right inputs, generate a structured draft with strong verbs and bullet
         points, and help you iterate until the story matches the role you want.
       </p>
       <p className="mt-5 text-base leading-7 text-slate-300">
         The difference between an average resume and a strong one is rarely “more AI.” It is
         clarity: what you shipped, how you measured it, who you collaborated with, and what changed
-        because of your work. CBCBS combines that discipline with an{" "}
+        because of your work. CV Builder combines that discipline with an{" "}
         <Link
-          href="/resume-generator"
+          href="/ai-resume-builder-tool"
           className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
         >
           AI resume generator
@@ -96,7 +106,7 @@ export default function AiResumeBuilderPage() {
         consistent headings, readable bullets, and relevant keywords used in natural context.
       </p>
       <p className="mt-4 text-base leading-7 text-slate-300">
-        CBCBS helps you produce an{" "}
+        CV Builder helps you produce an{" "}
         <strong className="font-semibold text-white">ATS-friendly resume</strong> by emphasizing
         plain-language sections, bullet-first experience blocks, and a professional summary that
         anchors your positioning. Whether you are switching careers, returning after a gap, or
@@ -105,7 +115,7 @@ export default function AiResumeBuilderPage() {
       </p>
 
       <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">
-        What you get with the CBCBS AI resume builder experience
+        What you get with the CV Builder AI resume builder experience
       </h2>
       <ul className="mt-5 list-disc space-y-3 pl-5 text-base leading-7 text-slate-300">
         <li>
@@ -123,18 +133,18 @@ export default function AiResumeBuilderPage() {
         </li>
         <li>
           <strong className="text-white">A workflow that pairs with cover letters:</strong> use the
-          CBCBS cover letter generator alongside your resume so your story stays consistent across
+          CV Builder cover letter generator alongside your resume so your story stays consistent across
           documents.
         </li>
       </ul>
 
       <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">
-        Step-by-step: how to use the CBCBS AI resume builder
+        Step-by-step: how to use the CV Builder AI resume builder
       </h2>
       <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-7 text-slate-300">
         <li>
-          <strong className="text-white">Open the CBCBS resume tool.</strong> Start from the{" "}
-          <Link href="/resume-generator" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
+          <strong className="text-white">Open the CV Builder resume tool.</strong> Start from the{" "}
+          <Link href="/ai-resume-builder-tool" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
             AI resume generator
           </Link>{" "}
           and keep your target role in mind while you write.
@@ -158,7 +168,7 @@ export default function AiResumeBuilderPage() {
           reorder bullets so the top third of your resume matches the role&apos;s priorities.
         </li>
         <li>
-          <strong className="text-white">Pair with a cover letter.</strong> Use the CBCBS{" "}
+          <strong className="text-white">Pair with a cover letter.</strong> Use the CV Builder{" "}
           <Link
             href="/cover-letter-generator"
             className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
@@ -180,7 +190,7 @@ export default function AiResumeBuilderPage() {
       </p>
       <p className="mt-4 text-base leading-7 text-slate-300">
         Another practical tip: keep a “master resume” with everything you have done, then generate
-        role-specific variants from that source of truth. CBCBS fits naturally into that habit: it
+        role-specific variants from that source of truth. CV Builder fits naturally into that habit: it
         helps you compress a large career story into a focused one-page narrative for each
         opportunity.
       </p>
@@ -200,7 +210,7 @@ export default function AiResumeBuilderPage() {
       </div>
 
       <SeoCtaBlock
-        title="Start with the CBCBS AI resume builder"
+        title="Start with the CV Builder AI resume builder"
         description="Generate a structured resume draft, then refine it for your target role. When you are ready, add a cover letter to complete your application package."
       />
     </SeoPageLayout>

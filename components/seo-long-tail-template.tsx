@@ -1,17 +1,44 @@
 import type { LongTailPageData } from "@/lib/seo-long-tail-types";
 
+import { JsonLd } from "@/components/json-ld";
 import { SeoCtaBlock } from "@/components/seo-cta-block";
 import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
+import {
+  articleJsonLd,
+  breadcrumbListJsonLd,
+  faqPageJsonLd,
+} from "@/lib/seo-json-ld";
+import { sitemapLastModified } from "@/lib/sitemap-dates";
 
 type SeoLongTailTemplateProps = {
   data: LongTailPageData;
 };
 
 export function SeoLongTailTemplate({ data }: SeoLongTailTemplateProps) {
+  const path = `/blog/${data.slug}`;
+  const modified = sitemapLastModified(path).toISOString().slice(0, 10);
+
   return (
     <SeoPageLayout>
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: data.h1,
+            description: data.metaDescription,
+            path,
+            dateModified: modified,
+          }),
+          breadcrumbListJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: data.shortLabel, path },
+          ]),
+          faqPageJsonLd(data.faq),
+        ]}
+      />
+
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">{data.eyebrow}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-[2.35rem] sm:leading-tight">
         {data.h1}
@@ -45,7 +72,7 @@ export function SeoLongTailTemplate({ data }: SeoLongTailTemplateProps) {
         </ol>
       </section>
 
-      <SeoRelatedRecommendations currentPath={`/blog/${data.slug}`} />
+      <SeoRelatedRecommendations currentPath={path} />
 
       <section className="mt-14">
         <h2 className="text-2xl font-semibold tracking-tight text-white">Frequently asked questions</h2>

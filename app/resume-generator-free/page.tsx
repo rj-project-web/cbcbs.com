@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { SeoCtaBlock } from "@/components/seo-cta-block";
+import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
+import { buildPageMetadata } from "@/lib/seo-metadata";
+import { breadcrumbListJsonLd, faqPageJsonLd } from "@/lib/seo-json-ld";
 
-export const metadata: Metadata = {
-  title: "Free AI Resume Builder Online | CV Builder",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Free Resume Generator Online: Guide & Workflow | CV Builder",
   description:
-    "Try a free AI resume builder online to generate ATS-oriented resume drafts fast, refine keyword alignment, and tailor applications role by role.",
-  openGraph: {
-    title: "Free AI Resume Builder Online | CV Builder",
-    description:
-      "Create a strong resume draft quickly with a free AI resume builder workflow focused on clarity, ATS readability, and faster iteration.",
-  },
-};
+    "Try a free resume generator online to create ATS-oriented drafts fast, refine keyword alignment, and tailor applications role by role—with a clear step-by-step workflow.",
+  path: "/resume-generator-free",
+});
 
 const faqItems = [
   {
-    question: "Is CBCBS really a free resume generator online?",
+    question: "Is CV Builder really a free resume generator online?",
     answer:
-      "CBCBS provides a streamlined generator experience so you can produce drafts without installing software. Usage limits may apply to keep the service reliable for everyone, but the product is designed so you can start quickly and upgrade only if you need more scale later.",
+      "CV Builder provides a streamlined generator experience so you can produce drafts without installing software. Usage limits may apply to keep the service reliable for everyone, but the product is designed so you can start quickly and upgrade only if you need more scale later.",
   },
   {
     question: "What should I include to get the best output from a free AI resume generator?",
@@ -35,15 +35,25 @@ const faqItems = [
   {
     question: "Will my data be stored if I use an online resume generator?",
     answer:
-      "Always review the product behavior in your deployment. CBCBS is built as a simple workflow: you should assume you are responsible for what you submit and how you store exported content. Copy your results into your own secure notes system if you need long-term retention.",
+      "Always review the product behavior in your deployment. CV Builder is built as a simple workflow: you should assume you are responsible for what you submit and how you store exported content. Copy your results into your own secure notes system if you need long-term retention.",
   },
 ];
 
 export default function ResumeGeneratorFreePage() {
   return (
     <SeoPageLayout>
+      <JsonLd
+        data={[
+          breadcrumbListJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Free Resume Generator", path: "/resume-generator-free" },
+          ]),
+          faqPageJsonLd(faqItems),
+        ]}
+      />
+      <SeoInternalToolLinks variant="resume-generator-free" />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-        CBCBS · Free Resume Generator
+        CV Builder · Free Resume Generator
       </p>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
         Free Resume Generator Online: Fast AI Drafts for ATS-Friendly, Interview-Ready Resumes
@@ -51,19 +61,19 @@ export default function ResumeGeneratorFreePage() {
       <p className="mt-6 text-lg leading-8 text-slate-300">
         If you are searching for a <strong className="font-semibold text-white">free resume generator</strong>{" "}
         online, you probably want three things at once: speed, quality, and a format that will not
-        break when you submit it to a company portal. CBCBS focuses on a{" "}
+        break when you submit it to a company portal. CV Builder focuses on a{" "}
         <strong className="font-semibold text-white">free AI resume generator</strong> workflow that
         helps you produce a structured English draft with bullet points and strong verbs—without
         forcing you through a bloated editor on day one.
       </p>
       <p className="mt-5 text-base leading-7 text-slate-300">
-        Many “free” tools optimize for ads, upsells, or confusing exports. CBCBS is intentionally
+        Many “free” tools optimize for ads, upsells, or confusing exports. CV Builder is intentionally
         product-shaped: you provide your name, your experience narrative, and your skills list, then
         you generate a draft you can refine. That approach keeps the{" "}
         <strong className="font-semibold text-white">resume generator free</strong> experience
         honest: the value is in the draft quality and your ability to iterate quickly—not in hiding
         the download behind ten screens. When you are ready to execute, start with the{" "}
-        <Link href="/resume-generator" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
+        <Link href="/ai-resume-builder-tool" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
           AI resume generator
         </Link>
         , add a matching{" "}
@@ -81,7 +91,7 @@ export default function ResumeGeneratorFreePage() {
       </p>
 
       <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">
-        Who the CBCBS free resume generator is for
+        Who the CV Builder free resume generator is for
       </h2>
       <p className="mt-4 text-base leading-7 text-slate-300">
         This workflow is built for busy candidates: new graduates, career switchers, senior ICs, and
@@ -106,7 +116,7 @@ export default function ResumeGeneratorFreePage() {
         </li>
         <li>
           <strong className="text-white">Bullet-first experience formatting:</strong> recruiters
-          skim bullets first; CBCBS prompts help you emphasize outcomes.
+          skim bullets first; CV Builder prompts help you emphasize outcomes.
         </li>
         <li>
           <strong className="text-white">Skills captured cleanly:</strong> comma-separated skills
@@ -119,11 +129,11 @@ export default function ResumeGeneratorFreePage() {
       </ul>
 
       <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">
-        Step-by-step: how to use the free resume generator on CBCBS
+        Step-by-step: how to use the free resume generator on CV Builder
       </h2>
       <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-7 text-slate-300">
         <li>
-          <strong className="text-white">Open the generator.</strong> Navigate to the CBCBS resume
+          <strong className="text-white">Open the generator.</strong> Navigate to the CV Builder resume
           generator page from this site.
         </li>
         <li>
@@ -165,7 +175,7 @@ export default function ResumeGeneratorFreePage() {
       </p>
       <p className="mt-4 text-base leading-7 text-slate-300">
         The third mistake is ignoring ATS realities: unusual column layouts, icons as text, and
-        dense tables can confuse parsers. CBCBS encourages clean, readable sections so you can
+        dense tables can confuse parsers. CV Builder encourages clean, readable sections so you can
         migrate the output into proven templates confidently.
       </p>
 
@@ -184,7 +194,7 @@ export default function ResumeGeneratorFreePage() {
       </div>
 
       <SeoCtaBlock
-        title="Try the CBCBS free resume generator"
+        title="Try the CV Builder free resume generator"
         description="Create a draft in minutes, then refine it for your target roles. Pair with a cover letter when you want a complete application package."
       />
     </SeoPageLayout>

@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { SeoCtaBlock } from "@/components/seo-cta-block";
+import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
+import { buildPageMetadata } from "@/lib/seo-metadata";
+import { articleJsonLd, breadcrumbListJsonLd, faqPageJsonLd } from "@/lib/seo-json-ld";
 
-export const metadata: Metadata = {
+const PAGE_PATH = "/blog/ai-resume-builder";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "How to Use an AI Resume Builder Without Sounding Generic | CV Builder",
   description:
     "Learn how to use an AI resume builder with a practical workflow, avoid generic output, and improve ATS-friendly resume quality for interviews.",
-  openGraph: {
-    title: "How to Use an AI Resume Builder Without Sounding Generic | CV Builder",
-    description:
-      "A practical guide to using an ai resume builder: clearer bullets, faster iterations, and recruiter-ready structure—without losing truth or credibility.",
-    type: "article",
-  },
-};
+  path: PAGE_PATH,
+  openGraphType: "article",
+});
 
 const faqItems = [
   {
@@ -48,8 +50,25 @@ const faqItems = [
 export default function BlogAiResumeBuilderPage() {
   return (
     <SeoPageLayout>
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: "How to Use an AI Resume Builder Without Sounding Generic",
+            description:
+              "A practical guide to using an ai resume builder: clearer bullets, faster iterations, and recruiter-ready structure.",
+            path: PAGE_PATH,
+          }),
+          breadcrumbListJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: "AI Resume Builder Guide", path: PAGE_PATH },
+          ]),
+          faqPageJsonLd(faqItems),
+        ]}
+      />
+      <SeoInternalToolLinks variant="blog" />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-        CBCBS · Career Guide
+        CV Builder · Career Guide
       </p>
       <p className="mt-3 text-sm text-slate-400">
         <Link href="/blog" className="text-cyan-200 underline-offset-4 hover:underline">
@@ -82,7 +101,7 @@ export default function BlogAiResumeBuilderPage() {
         <strong className="text-white">ai resume builder</strong> actually is, why it can be a
         genuine advantage, how to use it with a workflow that protects credibility, the mistakes
         that quietly hurt your hit rate, and a short FAQ. Along the way, you will see how a
-        lightweight product like <strong className="text-white">CBCBS</strong> fits into the
+        lightweight product like <strong className="text-white">CV Builder</strong> fits into the
         workflow—not as a magic button, but as a drafting accelerator built for clarity.
       </p>
 
@@ -142,7 +161,7 @@ export default function BlogAiResumeBuilderPage() {
         </li>
       </ul>
       <p className="mt-5 text-base leading-7 text-slate-300">
-        This is also where a product philosophy like <strong className="text-white">CBCBS</strong>{" "}
+        This is also where a product philosophy like <strong className="text-white">CV Builder</strong>{" "}
         matters: the goal is not “more AI,” but a shorter path from inputs to a structured draft you
         can refine. When the workflow is intentionally simple, you spend more time on judgment and
         tailoring—where leverage actually lives.
@@ -196,7 +215,7 @@ export default function BlogAiResumeBuilderPage() {
         every keyword you adopt is defensible in an interview.
       </p>
       <p className="mt-4 text-base leading-7 text-slate-300">
-        If you want a deeper mental model for ATS constraints, CBCBS also publishes a dedicated{" "}
+        If you want a deeper mental model for ATS constraints, CV Builder also publishes a dedicated{" "}
         <Link href="/ats-resume-checker" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
           ATS resume checker
         </Link>{" "}
@@ -246,8 +265,8 @@ export default function BlogAiResumeBuilderPage() {
         </li>
       </ol>
       <p className="mt-5 text-base leading-7 text-slate-300">
-        If you want a concrete place to execute this workflow, open CBCBS{" "}
-        <Link href="/resume-generator" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
+        If you want a concrete place to execute this workflow, open CV Builder{" "}
+        <Link href="/ai-resume-builder-tool" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
           AI resume generator
         </Link>{" "}
         for a structured draft you can copy and refine, then use the{" "}
@@ -312,14 +331,14 @@ export default function BlogAiResumeBuilderPage() {
       <p className="mt-4 text-base leading-7 text-slate-300">
         The hiring market rewards clarity, specificity, and speed. A modern{" "}
         <strong className="text-white">ai resume builder</strong> helps you compress weeks of
-        rewriting into days of iteration—if you keep standards high. CBCBS is built for candidates
+        rewriting into days of iteration—if you keep standards high. CV Builder is built for candidates
         who want that acceleration without abandoning editorial control: generate, copy, refine, and
         apply with confidence.
       </p>
       <p className="mt-4 text-base leading-7 text-slate-300">
         For more landing-page context, you can also explore{" "}
         <Link href="/ai-resume-builder" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
-          CBCBS AI Resume Builder
+          CV Builder AI Resume Builder
         </Link>{" "}
         and the{" "}
         <Link href="/resume-generator-free" className="font-semibold text-cyan-200 underline-offset-4 hover:underline">
@@ -330,7 +349,7 @@ export default function BlogAiResumeBuilderPage() {
 
       <SeoCtaBlock
         title="Put this guide into practice"
-        description="Generate a structured resume draft with CBCBS, refine it for your target role, then add a cover letter when you need a stronger narrative."
+        description="Generate a structured resume draft with CV Builder, refine it for your target role, then add a cover letter when you need a stronger narrative."
       />
     </SeoPageLayout>
   );

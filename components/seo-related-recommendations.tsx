@@ -17,7 +17,7 @@ const CORE_PAGES: RelatedItem[] = [
   {
     href: "/ai-resume-builder",
     title: "AI resume builder overview",
-    description: "What CBCBS helps you ship and how the product flow fits your search.",
+    description: "What CV Builder helps you ship and how the product flow fits your search.",
   },
   {
     href: "/resume-generator-free",
@@ -42,7 +42,7 @@ export function SeoRelatedRecommendations({ currentPath }: SeoRelatedRecommendat
   ).map((slug) => ({
     href: `/blog/${slug}`,
     title: LONG_TAIL_PAGES[slug].shortLabel,
-    description: "Situation-specific guide with steps, FAQs, and CBCBS CTAs.",
+    description: "Situation-specific guide with steps, FAQs, and CV Builder CTAs.",
   }));
 
   const coreFiltered = CORE_PAGES.filter((item) => item.href !== currentPath);

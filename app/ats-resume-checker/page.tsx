@@ -1,27 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { SeoCtaBlock } from "@/components/seo-cta-block";
 import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
+import { buildPageMetadata } from "@/lib/seo-metadata";
+import { breadcrumbListJsonLd, faqPageJsonLd } from "@/lib/seo-json-ld";
 
-export const metadata: Metadata = {
-  title: "ATS Resume Checker Guide for Job Applications | CV Builder",
+export const metadata: Metadata = buildPageMetadata({
+  title: "ATS Resume Checker Guide: Parseability & Keywords | CV Builder",
   description:
     "Learn how an ATS resume checker works, improve resume parseability and keyword matching, and apply an AI resume builder workflow that converts better.",
-  openGraph: {
-    title: "ATS Resume Checker Guide for Job Applications | CV Builder",
-    description:
-      "Improve ATS readability and keyword alignment with practical guidance plus AI drafting for resumes and cover letters.",
-  },
-};
+  path: "/ats-resume-checker",
+});
 
 const faqItems = [
   {
     question: "What is an ATS resume checker trying to measure?",
     answer:
-      "In practice, “ATS checking” usually means two things: parseability (can the system read your headings, dates, and bullets reliably?) and relevance (does your resume include skills and outcomes aligned with the job description?). CBCBS helps you improve both by producing clean text and prompting you to supply stronger evidence.",
+      "In practice, “ATS checking” usually means two things: parseability (can the system read your headings, dates, and bullets reliably?) and relevance (does your resume include skills and outcomes aligned with the job description?). CV Builder helps you improve both by producing clean text and prompting you to supply stronger evidence.",
   },
   {
     question: "Does keyword stuffing help ATS?",
@@ -29,9 +28,9 @@ const faqItems = [
       "It can backfire. Many systems score relevance, but humans still read finalists. The better approach is natural alignment: use the employer’s vocabulary where it matches your real work, and place the strongest matches in your summary and top experience bullets.",
   },
   {
-    question: "If CBCBS does not upload my PDF, how does it help ATS?",
+    question: "If CV Builder does not upload my PDF, how does it help ATS?",
     answer:
-      "CBCBS focuses on generating ATS-oriented resume content you can paste into a proven template or export workflow. Many ATS issues come from formatting choices; starting with clean content reduces risk before you finalize layout.",
+      "CV Builder focuses on generating ATS-oriented resume content you can paste into a proven template or export workflow. Many ATS issues come from formatting choices; starting with clean content reduces risk before you finalize layout.",
   },
   {
     question: "What is the fastest workflow to improve ATS outcomes this week?",
@@ -43,8 +42,17 @@ const faqItems = [
 export default function AtsResumeCheckerPage() {
   return (
     <SeoPageLayout>
+      <JsonLd
+        data={[
+          breadcrumbListJsonLd([
+            { name: "Home", path: "/" },
+            { name: "ATS Resume Checker", path: "/ats-resume-checker" },
+          ]),
+          faqPageJsonLd(faqItems),
+        ]}
+      />
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-        CBCBS · ATS Resume Checker
+        CV Builder · ATS Resume Checker
       </p>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
         ATS Resume Checker: How to Improve Parseability, Keywords, and Recruiter Scan Scores
@@ -54,7 +62,7 @@ export default function AtsResumeCheckerPage() {
         are usually trying to avoid a silent failure: your resume looks fine on screen, but the
         applicant tracking system misreads a section, drops your skills, or fails to match you
         against the job description.{" "}
-        <strong className="font-semibold text-white">CBCBS</strong> helps you address the root
+        <strong className="font-semibold text-white">CV Builder</strong> helps you address the root
         problem by producing{" "}
         <strong className="font-semibold text-white">ATS-friendly resume</strong> content with
         clear structure, readable bullets, and professional English—so you can focus on what actually
@@ -63,7 +71,7 @@ export default function AtsResumeCheckerPage() {
       <p className="mt-5 text-base leading-7 text-slate-300">
         A good <strong className="font-semibold text-white">ATS resume check</strong> mindset
         combines automation signals with human judgment. ATS can parse text, but it does not
-        understand nuance the way a hiring manager does. That is why CBCBS pairs practical ATS
+        understand nuance the way a hiring manager does. That is why CV Builder pairs practical ATS
         guidance with an <strong className="font-semibold text-white">AI resume builder</strong>{" "}
         workflow: you improve relevance and readability together, instead of treating them as
         separate puzzles.
@@ -84,14 +92,14 @@ export default function AtsResumeCheckerPage() {
       <p className="mt-4 text-base leading-7 text-slate-300">
         Keyword alignment matters too, but the best candidates avoid stuffing. They mirror the
         employer’s language in places where it is truthful: skills lists, project descriptions, and
-        the professional summary. CBCBS encourages that approach by asking you to supply real
+        the professional summary. CV Builder encourages that approach by asking you to supply real
         experience details and skills up front, which makes any subsequent{" "}
         <strong className="font-semibold text-white">ATS resume optimization</strong> exercise more
         grounded.
       </p>
 
       <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">
-        What CBCBS offers for ATS-oriented resume improvement
+        What CV Builder offers for ATS-oriented resume improvement
       </h2>
       <ul className="mt-5 list-disc space-y-3 pl-5 text-base leading-7 text-slate-300">
         <li>
@@ -107,13 +115,13 @@ export default function AtsResumeCheckerPage() {
           help you intentionally map to job postings without chaotic formatting.
         </li>
         <li>
-          <strong className="text-white">Cover letter consistency:</strong> use the CBCBS cover letter
+          <strong className="text-white">Cover letter consistency:</strong> use the CV Builder cover letter
           generator so your resume and letter reinforce the same themes.
         </li>
       </ul>
 
       <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">
-        Step-by-step: run your own ATS resume check process with CBCBS
+        Step-by-step: run your own ATS resume check process with CV Builder
       </h2>
       <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-7 text-slate-300">
         <li>
@@ -129,7 +137,7 @@ export default function AtsResumeCheckerPage() {
           relevance scores often reward specificity: numbers, scale, and outcomes.
         </li>
         <li>
-          <strong className="text-white">Generate a resume draft with CBCBS.</strong> Read the top
+          <strong className="text-white">Generate a resume draft with CV Builder.</strong> Read the top
           third like a recruiter: does it immediately signal role fit?
         </li>
         <li>
@@ -172,7 +180,7 @@ export default function AtsResumeCheckerPage() {
       </div>
 
       <SeoCtaBlock
-        title="Build an ATS-oriented resume draft with CBCBS"
+        title="Build an ATS-oriented resume draft with CV Builder"
         description="Use the resume generator to produce clean, structured English content you can paste into your final template—then refine keywords for each job you target."
       />
     </SeoPageLayout>

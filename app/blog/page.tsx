@@ -1,79 +1,132 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { SeoPageLayout } from "@/components/seo-page-layout";
-import { LONG_TAIL_PAGES, LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-data";
+import {
+  ALL_BLOG_POSTS,
+  BLOG_GUIDE_BY_CATEGORY,
+  FEATURED_BLOG_POST,
+  type BlogPostEntry,
+} from "@/lib/blog-posts";
+import { buildPageMetadata } from "@/lib/seo-metadata";
+import { breadcrumbListJsonLd, itemListJsonLd } from "@/lib/seo-json-ld";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "AI Resume Builder Blog | CV Builder Career Guides",
   description:
     "Read practical AI resume builder guides, ATS resume checker tips, and cover letter strategies built for modern job seekers.",
-};
+  path: "/blog",
+});
 
-const posts = [
-  {
-    href: "/blog/ai-resume-builder",
-    title: "How to Use an AI Resume Builder Without Sounding Generic",
-    description:
-      "What an ai resume builder does, advantages, a step-by-step workflow, mistakes to avoid, and FAQs.",
-    date: "2026",
-  },
-];
+function formatPostDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+function PostCard({ post, badge }: { post: BlogPostEntry; badge?: string }) {
+  return (
+    <article className="card-lift rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-xl shadow-slate-950/20">
+      <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
+        {formatPostDate(post.datePublished)}
+        {badge ? ` · ${badge}` : ""}
+      </p>
+      <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
+        <Link href={post.href} className="hover:text-cyan-200">
+          {post.title}
+        </Link>
+      </h3>
+      <p className="mt-2 text-sm leading-6 text-slate-300 line-clamp-3">{post.description}</p>
+      <Link
+        href={post.href}
+        className="mt-4 inline-block text-sm font-semibold text-cyan-200 underline-offset-4 hover:underline"
+      >
+        Read guide →
+      </Link>
+    </article>
+  );
+}
+
+function GuideSection({
+  title,
+  description,
+  posts,
+}: {
+  title: string;
+  description: string;
+  posts: BlogPostEntry[];
+}) {
+  if (posts.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="mt-14">
+      <h2 className="text-2xl font-semibold tracking-tight text-white">{title}</h2>
+      <p className="mt-3 text-base leading-7 text-slate-300">{description}</p>
+      <ul className="mt-6 grid gap-6 lg:grid-cols-2">
+        {posts.map((post) => (
+          <li key={post.href}>
+            <PostCard post={post} badge="Guide" />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
 export default function BlogIndexPage() {
   return (
     <SeoPageLayout>
+      <JsonLd
+        data={[
+          breadcrumbListJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+          ]),
+          itemListJsonLd(
+            ALL_BLOG_POSTS.map((post) => ({
+              name: post.title,
+              path: post.href,
+              description: post.description,
+            })),
+          ),
+        ]}
+      />
+
       <h1 className="text-4xl font-semibold tracking-tight text-white">Blog</h1>
       <p className="mt-4 text-base leading-7 text-slate-300">
         Guides for candidates who want clearer resumes, stronger narratives, and a faster application
-        workflow.
+        workflow. Browse by role, writing tactics, or examples and templates.
       </p>
-      <ul className="mt-10 space-y-6">
-        {posts.map((post) => (
-          <li key={post.href}>
-            <article className="card-lift rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-xl shadow-slate-950/20">
-              <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
-                {post.date}
-              </p>
-              <h2 className="mt-2 text-xl font-semibold text-white">
-                <Link href={post.href} className="hover:text-cyan-200">
-                  {post.title}
-                </Link>
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-slate-300">{post.description}</p>
-              <Link
-                href={post.href}
-                className="mt-4 inline-block text-sm font-semibold text-cyan-200 underline-offset-4 hover:underline"
-              >
-                Read article →
-              </Link>
-            </article>
-          </li>
-        ))}
+
+      <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Featured article</h2>
+      <ul className="mt-6 space-y-6">
+        <li>
+          <PostCard post={FEATURED_BLOG_POST} badge="Featured" />
+        </li>
       </ul>
 
-      <h2 className="mt-16 text-2xl font-semibold tracking-tight text-white">
-        Guides for your situation
-      </h2>
-      <p className="mt-3 text-base leading-7 text-slate-300">
-        Pick the guide that matches where you are today—whether you are still in school, applying
-        for your first full-time role, writing a technical resume as a developer, trying a free
-        online draft workflow, or tightening your resume for applicant tracking systems. Each guide
-        walks you through what to emphasize, mistakes to avoid, clear next steps, and answers to
-        common questions—so you leave with practical ideas you can use right away, not jargon.
-      </p>
-      <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-        {LONG_TAIL_SLUGS.map((slug) => (
-          <li key={slug}>
-            <Link
-              href={`/blog/${slug}`}
-              className="card-lift block rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-slate-200 shadow-lg shadow-slate-950/20 hover:text-cyan-200"
-            >
-              {LONG_TAIL_PAGES[slug].shortLabel}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <GuideSection
+        title="Guides by role & industry"
+        description="Student, healthcare, education, marketing, sales, project management, and engineering—each guide shows what to emphasize and how to draft with CV Builder."
+        posts={BLOG_GUIDE_BY_CATEGORY.role}
+      />
+
+      <GuideSection
+        title="Writing & AI workflow"
+        description="Bullet points, summaries, action verbs, free generators, ATS checks, and how dedicated resume tools compare to general chat models."
+        posts={BLOG_GUIDE_BY_CATEGORY.writing}
+      />
+
+      <GuideSection
+        title="Examples & templates"
+        description="Resume examples, internship structure, no-experience patterns, software engineer samples, and ATS-friendly layout guidance."
+        posts={BLOG_GUIDE_BY_CATEGORY.examples}
+      />
     </SeoPageLayout>
   );
 }
