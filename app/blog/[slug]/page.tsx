@@ -9,6 +9,9 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+/** Allow new slugs after deploy without rebuild (fallback SSR). */
+export const dynamicParams = true;
+
 export function generateStaticParams() {
   return LONG_TAIL_SLUGS.map((slug) => ({ slug }));
 }

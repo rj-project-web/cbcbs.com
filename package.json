@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:all": "npm run dev",
     "build": "next build",
+    "postbuild": "node scripts/verify-build-pages.mjs",
     "start": "next start",
     "lint": "eslint ."
   },
