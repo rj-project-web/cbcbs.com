@@ -15,10 +15,20 @@ const PHASE3_SLUGS = [
   "action-verbs-for-resume",
 ];
 
+/** Must match COVER_LETTER_LONG_TAIL_SLUGS in lib/seo-long-tail-cover-letter.ts */
+const COVER_LETTER_SLUGS = [
+  "how-to-write-a-cover-letter",
+  "ai-cover-letter-generator-vs-manual",
+  "cover-letter-examples-for-career-changers",
+  "short-cover-letter-samples",
+];
+
+const REQUIRED_SLUGS = [...PHASE3_SLUGS, ...COVER_LETTER_SLUGS];
+
 const blogOutputDir = join(process.cwd(), ".next/server/app/blog");
 const missing = [];
 
-for (const slug of PHASE3_SLUGS) {
+for (const slug of REQUIRED_SLUGS) {
   const htmlPath = join(blogOutputDir, `${slug}.html`);
   if (!existsSync(htmlPath)) {
     missing.push(slug);
@@ -33,4 +43,6 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-console.log(`Build verification passed (${PHASE3_SLUGS.length} phase-3 blog pages present).`);
+console.log(
+  `Build verification passed (${PHASE3_SLUGS.length} phase-3 + ${COVER_LETTER_SLUGS.length} cover-letter blog pages present).`,
+);

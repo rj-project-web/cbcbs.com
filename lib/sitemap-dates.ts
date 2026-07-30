@@ -1,3 +1,4 @@
+import { COVER_LETTER_LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-cover-letter";
 import { PHASE3_LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-phase3";
 
 /** Last-modified dates for sitemap (ISO date strings). */
@@ -25,9 +26,14 @@ const PHASE3_SITEMAP_DATES = Object.fromEntries(
   PHASE3_LONG_TAIL_SLUGS.map((slug) => [`/blog/${slug}`, "2026-05-27"]),
 );
 
+const COVER_LETTER_SITEMAP_DATES = Object.fromEntries(
+  COVER_LETTER_LONG_TAIL_SLUGS.map((slug) => [`/blog/${slug}`, "2026-07-30"]),
+);
+
 export const SITEMAP_LAST_MODIFIED: Record<string, string> = {
   ...BASE_SITEMAP_DATES,
   ...PHASE3_SITEMAP_DATES,
+  ...COVER_LETTER_SITEMAP_DATES,
 };
 
 export function sitemapLastModified(path: string): Date {

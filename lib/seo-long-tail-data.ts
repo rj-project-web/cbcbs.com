@@ -1,5 +1,9 @@
 import type { LongTailPageData } from "@/lib/seo-long-tail-types";
 import {
+  COVER_LETTER_LONG_TAIL_PAGES,
+  COVER_LETTER_LONG_TAIL_SLUGS,
+} from "@/lib/seo-long-tail-cover-letter";
+import {
   PHASE3_LONG_TAIL_PAGES,
   PHASE3_LONG_TAIL_SLUGS,
 } from "@/lib/seo-long-tail-phase3";
@@ -16,7 +20,11 @@ const BASE_LONG_TAIL_SLUGS = [
   "ats-friendly-resume-template",
 ] as const;
 
-export const LONG_TAIL_SLUGS = [...BASE_LONG_TAIL_SLUGS, ...PHASE3_LONG_TAIL_SLUGS] as const;
+export const LONG_TAIL_SLUGS = [
+  ...BASE_LONG_TAIL_SLUGS,
+  ...PHASE3_LONG_TAIL_SLUGS,
+  ...COVER_LETTER_LONG_TAIL_SLUGS,
+] as const;
 
 export type LongTailSlug = (typeof LONG_TAIL_SLUGS)[number];
 
@@ -675,6 +683,7 @@ const BASE_LONG_TAIL_PAGES: Record<(typeof BASE_LONG_TAIL_SLUGS)[number], LongTa
 export const LONG_TAIL_PAGES: Record<LongTailSlug, LongTailPageData> = {
   ...BASE_LONG_TAIL_PAGES,
   ...PHASE3_LONG_TAIL_PAGES,
+  ...COVER_LETTER_LONG_TAIL_PAGES,
 };
 
 export function getLongTailPage(slug: string): LongTailPageData | undefined {

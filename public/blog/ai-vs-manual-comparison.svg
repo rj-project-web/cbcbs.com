@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="AI vs Manual Comparison">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0b1220"/>
+  <rect x="48" y="48" width="704" height="404" rx="28" fill="url(#g)" opacity="0.92"/>
+  <rect x="96" y="140" width="608" height="220" rx="18" fill="#0b1220" opacity="0.35"/>
+  <text x="50%" y="48%" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">AI vs Manual Comparison</text>
+  <text x="50%" y="58%" text-anchor="middle" fill="#e2e8f0" font-family="Arial, Helvetica, sans-serif" font-size="22">CV Builder · Cover Letter Guide</text>
+</svg>

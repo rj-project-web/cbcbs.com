@@ -43,6 +43,14 @@ const LEAD_BY_VARIANT: Record<string, string> = {
     "Try the structured resume workflow in CV Builder, then edit like you would any first draft:",
   "action-verbs-for-resume":
     "Upgrade weak bullets with stronger verbs using a CV Builder draft as your starting point:",
+  "how-to-write-a-cover-letter":
+    "When your outline is ready, draft a tailored letter in minutes with CV Builder:",
+  "ai-cover-letter-generator-vs-manual":
+    "Ready to test an AI-assisted workflow? Start a draft in CV Builder:",
+  "cover-letter-examples-for-career-changers":
+    "Turn your transferable-skills map into a letter draft with CV Builder:",
+  "short-cover-letter-samples":
+    "Generate a full draft, then trim it to hook–value–ask with CV Builder:",
 };
 
 export function SeoInternalToolLinks({ variant }: SeoInternalToolLinksProps) {
@@ -50,31 +58,49 @@ export function SeoInternalToolLinks({ variant }: SeoInternalToolLinksProps) {
     LEAD_BY_VARIANT[variant] ??
     "When you are ready to apply what you just read, CV Builder connects guidance to execution through three core tools:";
 
+  const coverLetterFirst = variant.includes("cover-letter") || variant.startsWith("short-cover-letter");
+
+  const resumeLink = (
+    <Link
+      href="/ai-resume-builder-tool"
+      className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
+    >
+      AI resume generator
+    </Link>
+  );
+  const coverLink = (
+    <Link
+      href="/cover-letter-generator"
+      className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
+    >
+      AI cover letter generator
+    </Link>
+  );
+  const atsLink = (
+    <Link
+      href="/ats-resume-checker"
+      className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
+    >
+      ATS resume checker
+    </Link>
+  );
+
   return (
     <div className="mt-8 rounded-2xl border border-cyan-400/15 bg-cyan-400/[0.06] px-5 py-5">
       <p className="text-base leading-7 text-slate-200">
-        {lead} start with the{" "}
-        <Link
-          href="/ai-resume-builder-tool"
-          className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
-        >
-          AI resume generator
-        </Link>{" "}
-        to produce structured resume text, follow with the{" "}
-        <Link
-          href="/cover-letter-generator"
-          className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
-        >
-          cover letter generator
-        </Link>{" "}
-        when you need a narrative complement, and use the{" "}
-        <Link
-          href="/ats-resume-checker"
-          className="font-semibold text-cyan-200 underline-offset-4 hover:underline"
-        >
-          ATS resume checker
-        </Link>{" "}
-        guide to sanity-check readability and keyword alignment before you finalize formatting.
+        {lead}{" "}
+        {coverLetterFirst ? (
+          <>
+            start with the {coverLink} for a tailored narrative, pair it with the {resumeLink} for
+            matching proof points, and use the {atsLink} guide before you finalize formatting.
+          </>
+        ) : (
+          <>
+            start with the {resumeLink} to produce structured resume text, follow with the {coverLink}{" "}
+            when you need a narrative complement, and use the {atsLink} guide to sanity-check
+            readability and keyword alignment before you finalize formatting.
+          </>
+        )}
       </p>
     </div>
   );

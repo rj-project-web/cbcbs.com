@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: data.metaDescription,
     path: `/blog/${data.slug}`,
     openGraphType: "article",
+    ogImagePath: data.coverImage?.src,
+    ogImageAlt: data.coverImage?.alt ?? data.h1,
   });
 }
 

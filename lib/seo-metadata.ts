@@ -10,6 +10,8 @@ type BuildPageMetadataOptions = {
   openGraphType?: "website" | "article";
   /** Override default logo OG image */
   ogImagePath?: string;
+  /** Accessible alt text for OG/Twitter image */
+  ogImageAlt?: string;
 };
 
 export function buildPageMetadata({
@@ -18,9 +20,11 @@ export function buildPageMetadata({
   path,
   openGraphType = "website",
   ogImagePath,
+  ogImageAlt,
 }: BuildPageMetadataOptions): Metadata {
   const canonical = absoluteUrl(path);
   const ogImage = absoluteOgImage(ogImagePath);
+  const imageAlt = ogImageAlt ?? `${SITE_NAME} — ${SITE_TAGLINE}`;
 
   return {
     title,
@@ -38,7 +42,7 @@ export function buildPageMetadata({
       images: [
         {
           url: ogImage,
-          alt: `${SITE_NAME} — ${SITE_TAGLINE}`,
+          alt: imageAlt,
         },
       ],
     },

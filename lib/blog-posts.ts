@@ -1,3 +1,4 @@
+import { COVER_LETTER_LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-cover-letter";
 import { LONG_TAIL_PAGES, LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-data";
 import { PHASE3_LONG_TAIL_SLUGS } from "@/lib/seo-long-tail-phase3";
 
@@ -39,6 +40,7 @@ const WRITING_SLUGS = new Set([
   "resume-summary-generator",
   "action-verbs-for-resume",
   "ai-resume-builder-vs-chatgpt",
+  ...COVER_LETTER_LONG_TAIL_SLUGS,
 ]);
 
 function categoryForSlug(slug: string): BlogPostCategory {
@@ -53,12 +55,13 @@ function categoryForSlug(slug: string): BlogPostCategory {
 
 export const BLOG_GUIDE_POSTS: BlogPostEntry[] = LONG_TAIL_SLUGS.map((slug) => {
   const page = LONG_TAIL_PAGES[slug];
-  const isNew = (PHASE3_LONG_TAIL_SLUGS as readonly string[]).includes(slug);
+  const isCoverLetter = (COVER_LETTER_LONG_TAIL_SLUGS as readonly string[]).includes(slug);
+  const isPhase3 = (PHASE3_LONG_TAIL_SLUGS as readonly string[]).includes(slug);
   return {
     href: `/blog/${slug}`,
     title: page.h1,
     description: page.metaDescription,
-    datePublished: isNew ? "2026-05-27" : "2026-04-23",
+    datePublished: isCoverLetter ? "2026-07-30" : isPhase3 ? "2026-05-27" : "2026-04-23",
     category: categoryForSlug(slug),
   };
 });
