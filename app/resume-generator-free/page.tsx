@@ -7,7 +7,11 @@ import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
 import { buildPageMetadata } from "@/lib/seo-metadata";
-import { breadcrumbListJsonLd, faqPageJsonLd } from "@/lib/seo-json-ld";
+import {
+  breadcrumbListJsonLd,
+  faqPageJsonLd,
+  softwareApplicationJsonLd,
+} from "@/lib/seo-json-ld";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Free Resume Generator Online: Guide & Workflow | CV Builder",
@@ -44,6 +48,18 @@ export default function ResumeGeneratorFreePage() {
     <SeoPageLayout>
       <JsonLd
         data={[
+          softwareApplicationJsonLd({
+            name: "Free Resume Generator Online",
+            description:
+              "Try a free resume generator online to create ATS-oriented drafts fast, refine keyword alignment, and tailor applications role by role.",
+            path: "/resume-generator-free",
+            featureList: [
+              "Free AI resume drafting workflow",
+              "ATS-oriented English output guidance",
+              "Step-by-step application tips",
+              "Links to live resume and cover letter tools",
+            ],
+          }),
           breadcrumbListJsonLd([
             { name: "Home", path: "/" },
             { name: "Free Resume Generator", path: "/resume-generator-free" },

@@ -36,14 +36,15 @@ export function webSiteJsonLd() {
   };
 }
 
-export function webApplicationJsonLd(options: {
+export function softwareApplicationJsonLd(options: {
   name: string;
   description: string;
   path: string;
+  featureList?: string[];
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
     name: options.name,
     description: options.description,
     url: absoluteUrl(options.path),
@@ -59,7 +60,18 @@ export function webApplicationJsonLd(options: {
       name: SITE_NAME,
       url: SITE_URL,
     },
+    ...(options.featureList?.length ? { featureList: options.featureList } : {}),
   };
+}
+
+/** @deprecated Prefer softwareApplicationJsonLd — kept as an alias for older call sites. */
+export function webApplicationJsonLd(options: {
+  name: string;
+  description: string;
+  path: string;
+  featureList?: string[];
+}) {
+  return softwareApplicationJsonLd(options);
 }
 
 export function faqPageJsonLd(items: FaqItem[]) {

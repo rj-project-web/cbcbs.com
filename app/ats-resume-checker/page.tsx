@@ -7,7 +7,11 @@ import { SeoInternalToolLinks } from "@/components/seo-internal-tool-links";
 import { SeoPageLayout } from "@/components/seo-page-layout";
 import { SeoRelatedRecommendations } from "@/components/seo-related-recommendations";
 import { buildPageMetadata } from "@/lib/seo-metadata";
-import { breadcrumbListJsonLd, faqPageJsonLd } from "@/lib/seo-json-ld";
+import {
+  breadcrumbListJsonLd,
+  faqPageJsonLd,
+  softwareApplicationJsonLd,
+} from "@/lib/seo-json-ld";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "ATS Resume Checker Guide: Parseability & Keywords | CV Builder",
@@ -44,6 +48,18 @@ export default function AtsResumeCheckerPage() {
     <SeoPageLayout>
       <JsonLd
         data={[
+          softwareApplicationJsonLd({
+            name: "ATS Resume Checker Guide",
+            description:
+              "Learn how an ATS resume checker works, improve resume parseability and keyword matching, and apply an AI resume builder workflow that converts better.",
+            path: "/ats-resume-checker",
+            featureList: [
+              "ATS parseability checklist mindset",
+              "Truthful keyword alignment guidance",
+              "Clean resume content workflow",
+              "Links to free AI resume drafting tools",
+            ],
+          }),
           breadcrumbListJsonLd([
             { name: "Home", path: "/" },
             { name: "ATS Resume Checker", path: "/ats-resume-checker" },
