@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { JsonLd } from "@/components/json-ld";
 import { SeoPageLayout } from "@/components/seo-page-layout";
@@ -19,6 +18,9 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/blog",
 });
 
+/** ISR: refresh blog index periodically when content source changes. */
+export const revalidate = 3600;
+
 function formatPostDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
     year: "numeric",
@@ -31,21 +33,21 @@ function PostCard({ post, badge }: { post: BlogPostEntry; badge?: string }) {
   return (
     <article className="card-lift rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-xl shadow-slate-950/20">
       <p className="text-xs font-medium uppercase tracking-wider text-slate-500">
-        {formatPostDate(post.datePublished)}
+        <time dateTime={post.datePublished}>{formatPostDate(post.datePublished)}</time>
         {badge ? ` · ${badge}` : ""}
       </p>
       <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
-        <Link href={post.href} className="hover:text-cyan-200">
+        <a href={post.href} className="hover:text-cyan-200">
           {post.title}
-        </Link>
+        </a>
       </h3>
       <p className="mt-2 text-sm leading-6 text-slate-300 line-clamp-3">{post.description}</p>
-      <Link
+      <a
         href={post.href}
         className="mt-4 inline-block text-sm font-semibold text-cyan-200 underline-offset-4 hover:underline"
       >
         Read guide →
-      </Link>
+      </a>
     </article>
   );
 }
@@ -78,7 +80,10 @@ function GuideSection({
   );
 }
 
-export default function BlogIndexPage() {
+export default async function BlogIndexPage() {
+  // Server-rendered from static content modules (no Sanity client in this repo).
+  const posts = ALL_BLOG_POSTS;
+
   return (
     <SeoPageLayout>
       <JsonLd
@@ -88,7 +93,7 @@ export default function BlogIndexPage() {
             { name: "Blog", path: "/blog" },
           ]),
           itemListJsonLd(
-            ALL_BLOG_POSTS.map((post) => ({
+            posts.map((post) => ({
               name: post.title,
               path: post.href,
               description: post.description,
@@ -103,7 +108,23 @@ export default function BlogIndexPage() {
         workflow. Browse by role, writing tactics, or examples and templates.
       </p>
 
-      <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Featured article</h2>
+      <section aria-label="All articles" className="mt-10">
+        <h2 className="text-2xl font-semibold tracking-tight text-white">All articles</h2>
+        <p className="mt-3 text-base leading-7 text-slate-300">
+          Complete index of CV Builder guides ({posts.length} articles).
+        </p>
+        <ol className="mt-6 list-decimal space-y-2 pl-5 text-base leading-7 text-slate-300">
+          {posts.map((post) => (
+            <li key={`index-${post.href}`}>
+              <a href={post.href} className="font-medium text-cyan-200 underline-offset-4 hover:underline">
+                {post.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <h2 className="mt-14 text-2xl font-semibold tracking-tight text-white">Featured article</h2>
       <ul className="mt-6 space-y-6">
         <li>
           <PostCard post={FEATURED_BLOG_POST} badge="Featured" />
