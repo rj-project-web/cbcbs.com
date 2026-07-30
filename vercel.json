@@ -8,7 +8,7 @@
       "source": "/:path*",
       "has": [{ "type": "host", "value": "cbcbs.com" }],
       "destination": "https://www.cbcbs.com/:path*",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }
